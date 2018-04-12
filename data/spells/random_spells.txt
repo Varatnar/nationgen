@@ -244,3 +244,93 @@
 #chanceinc diversity not 3 *4
 #chanceinc diversity not 2 *8
 #end
+
+--ME stuff
+--Aco spells
+#new
+#name "Arcosephale Earth spells"
+#spell "Creations of the Lykeoin"
+#spell "Defenders of the Lykeoin"
+#spell "Men of bronze"
+#spell "Headless Men"
+#spell "Mechanical Icarids"
+#spell "Construct Talos"
+#spell "Defences of Daidalos"
+#basechance 0
+#chanceinc anymagic earth 0.2
+#chanceinc hasthemetheme bronze 0.2
+#chanceinc nationtag bronze 0.2
+#chanceinc command #slothresearch *5
+#chanceinc anymagic not earth *0
+#chanceinc hasthemetheme blacksteel *0
+#chanceinc nationtag blacksteel *0
+#chanceinc primaryrace not human *0
+#end
+
+#new
+#name "Arcosephale Astral spells"
+#spell "Zodiac Cascades"
+#spell "Power of the Zodiac"
+#spell "Astral Scrying"
+#spell "Dissolve into Atoms"
+#spell "Illusion of Motion"
+#spell "Call to Adventure"
+#basechance 0
+#chanceinc anymagic astral 0.2
+#chanceinc hasthemetheme bronze 0.2
+#chanceinc nationtag bronze 0.2
+#chanceinc command #slothresearch *5
+#chanceinc anymagic not astral *0
+#chanceinc hasthemetheme blacksteel *0
+#chanceinc nationtag blacksteel *0
+#chanceinc primaryrace not  human *0
+#end
+
+#new
+#name "Arcosephale titan spells"
+#spell "The Wrath of the Titans"
+#spell "Titan of War and Wisdom"
+#spell "Titan of the Seas"
+#spell "Titan of the Underworld"
+#basechance 0.015
+#chanceinc random 0.25 *0
+#chanceinc hasthemetheme bronze 0.1
+#chanceinc command #slothresearch *5
+#chanceinc nationtag bronze 0.1
+#chanceinc spells "Oni Summons" *0
+#chanceinc spells "TC ancestor spells" *0
+#end
+
+#new
+#name "arco summon spells"
+#spell "Contact Oceanid"
+#spell "Contact Oreiad"
+#spell "Summon Lampades"
+#spell "Contact Karyatid"
+#spell "Contact Eleionomae"
+#spell "Contact Nephelae"
+#basechance 0.015
+#chanceinc hasthemetheme civilised 1
+#chanceinc command #slothresearch *5
+#chanceinc nationtag civilised 1
+#end
+
+#new
+#name "scry spells"
+#spell "Baleful Conjunction"
+#spell "Baleful Conjunction""
+#spell "Cursed Omen"
+#spell "Guidance of the Gods"
+#spell "Cursed Luck"
+#basechance 0
+#chanceinc anymagic astral 0.2
+#chanceinc hasthemetheme patriarchal 1
+#chanceinc nationtag patriarchal 1
+#chanceinc hasthemetheme crystal 1
+#chanceinc nationtag crystal 1
+#end
+
+#new
+#name "advanced human spells"
+
+#end

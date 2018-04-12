@@ -21,16 +21,26 @@
 #chanceinc hasthemetheme oriental 1
 #chanceinc random 0.5 *0
 #chanceinc spells "TC non-death spells" *0
+#chanceinc spells "Arcosephale titan spells" *0
 #end
 
 #new
 #name "TC ancestor spells"
 #spell "Call Ancestor"
 #spell "Wrath of the Ancestors"
+---Magic enhanced
+#spell "Create Corpse-Immortal"
+#spell "King of Ghosts"
+#spell "Control Unruly Spirits"
+#spell "Contact Ancestral Riders"
+#spell "Ancestral Host"
+#spell "Summon Ancestral Rider"
+#spell "Contact Ancestors"
 #basechance 0
 #chanceinc nationtag oriental 1
 #chanceinc hasthemetheme oriental 1
 #chanceinc random 0.5 *0
+#chanceinc spells "Arcosephale titan spells" *0
 #end
 
 #new
@@ -43,23 +53,53 @@
 #spell "Heavenly Fires"
 #spell "Heavenly Rivers"
 #spell "Internal Alchemy"
+---Magic enhanced
+#spell "Celestial Army"
+#spell "Petition Zhurong"
+#spell "Prepare Sacred Herbs"
+#spell "Become Celestial Immortal"
+#spell "Awaken Gong Gong"
 #basechance 0
 #chanceinc nationtag oriental 1
 #chanceinc hasthemetheme oriental 1
 #chanceinc random 0.5 *0
 #chanceinc spells "Tengus" *0
 #chanceinc spells "Jomon Spells" *0
+#chanceinc spells "Arcosephale titan spells" *0
+#end
+
+--magic enhanced
+#new
+#name "ME Oriental Spells"
+#spell "Awaken Stone Guardians"
+#spell "Terracotta Soldiers"
+#spell "Terracotta General"
+#spell "Construct Fire Arrows"
+#spell "Terracotta Legion"
+#spell "Goldfish of the Heavens"
+#basechance 0
+#chanceinc nationtag oriental 1
+#chanceinc hasthemetheme oriental 1
+#chanceinc random 0.5 *0
+#chanceinc spells "Tengus" *0
 #end
 
 #new
 #name "Yomi Spells"
 #spell "Ghost General"
 #spell "Summon Gozu Mezu"
+---ME
 #spell "Summon Shikome"
+#spell "The Four Holy Beasts"
+#spell "Call the Tesso"
+#spell "End of Days"
+#spell "End of Courage"
+#spell "Dark Bolt"
 #basechance 0
 #chanceinc nationtag oriental 1
 #chanceinc hasthemetheme oriental 1
 #chanceinc random 0.5 *0
+#chanceinc spells "Arcosephale titan spells" *0
 #end
 
 #new
@@ -74,11 +114,21 @@
 #spell "Contact Yama-no-kami"
 #spell "Contact Tatsu"
 #spell "Summon Ujigami"
+---ME
+#spell "Tengu Clanhold"
+#spell "Contact Raijin"
+#spell "Summon Yuki-Onna"
+#spell "Izanami-no-Mikoto"
+#spell "Wake Namazu"
+#spell "Send Amanojaku"
+#spell "Miko Bonding Ritual"
+#spell "Contact Danzaburou"
 #basechance 0
 #chanceinc nationtag oriental 1
 #chanceinc hasthemetheme oriental 1
 #chanceinc random 0.5 *0
 #chanceinc spells "TC non-death spells" *0
+#chanceinc spells "Arcosephale titan spells" *0
 #end
 
 
@@ -90,6 +140,10 @@
 #spell "Summon Dai Oni"
 #spell "Summon Aka-Oni"
 #spell "Summon Ao-Oni"
+#spell "Yama-Uba Pact"
+#spell "Ubagabi Pact"
+#spell "Horde of Demon Hags"
+#spell "Gate to the Netherworld"
 #basechance 0
 #chanceinc nationtag oriental 1
 #chanceinc hasthemetheme oriental 1
@@ -98,6 +152,7 @@
 #chanceinc random 0.25 *0
 #chanceinc nationtag not oriental *0
 #chanceinc hasthemetheme not oriental *0
+#chanceinc spells "Arcosephale titan spells" *0
 #end
 
 - Occidental
@@ -109,6 +164,15 @@
 #spell "Summon Jaguars"
 #spell "Summon Monster Toad"
 #spell "Summon Jaguar Toad"
+#spell "Summon Aerial Servant"
+#spell "Summon Greater Aerial Servant"
+#spell "Summon Cloud Serpents"
+#spell "Teotl of the Sky"
+#spell "Troop of Monkeys"
+#spell "Summon Dream Warriors"
+#spell "Knot of Toads"
+#spell "Rain Dance"
+#spell "Deluge"
 #basechance 0
 #chanceinc nationtag occidental 1
 #chanceinc hasthemetheme occidental 1
@@ -124,6 +188,10 @@
 #spell "Contact Tlahuelpuchi"
 #spell "Bind Jaguar Fiends"
 #spell "Bind Beast Bats"
+#spell "Feed the Hungry God"
+#spell "Ensure Fertility"
+#spell "The Beast of the Night"
+#spell "The Obsidian Butterfly"
 #basechance 0
 #chanceinc nationtag occidental 1
 #chanceinc hasthemetheme occidental 1
@@ -142,6 +210,10 @@
 #spell "Break the Third Soul"
 #spell "Gift of the Third Soul"
 #spell "Summon Chaac"
+#spell "Teotl of the Sky"
+#spell "Carve Wooden Men"
+#spell "Create Mud Man"
+#spell "Deluge"
 #basechance 0
 #chanceinc nationtag occidental 1
 #chanceinc hasthemetheme occidental 1
@@ -156,9 +228,42 @@
 #name "Norse spells"
 #spell "Awaken Draugar"
 #spell "Summon Valkyries"
+#spell "Call the Aesir"
+#spell "Capture Fay Boar"
+#spell "Contact Dwarf Elder"
+#spell "Visit Yggdrasil"
 #basechance 0
 #chanceinc nationtag nordic 1
 #chanceinc hasthemetheme nordic 1
+#chanceinc random 0.25 *0
+#end
+
+
+---ME
+#new
+#name "Air Van spells"
+#spell "Flight of the vanir"
+#spell "Ride of the Valkyries"
+#spell "Flight of the Valkyries"
+#spell "Rescue from the Skies"
+#spell "Hidden in Barrows"
+#basechance 0
+#chanceinc nationtag nordic 1
+#chanceinc hasthemetheme nordic 1
+#chanceinc anymagic air 1
+#chanceinc random 0.25 *0
+#end
+
+--requires blood access
+#name "Blood Van spells"
+#spell "Gift of Battle Fury"
+#spell "Blood Portent"
+#spell "Gift of the Einhere"
+#spell "Battle Fury"
+#basechance 0
+#chanceinc nationtag nordic 1
+#chanceinc hasthemetheme nordic 1
+#chanceinc anymagic not blood *0
 #chanceinc random 0.25 *0
 #end
 
@@ -169,9 +274,36 @@
 #name "Abysian spells"
 #spell "Inner Furnace"
 #spell "Summon Spectral Infantry"
+#spell "The Underworld Dragon"
+#spell "Teachings of Malphas"
+#spell "Pact of Blood and Fire"
+#spell "Contact Scorpion Lord"
 #basechance 0
 #chanceinc nationtag abysian 1
 #chanceinc hasthemetheme abysian 1
+#chanceinc random 0.25 *0
+#end
+
+#new
+#name "Abysian Fire spells"
+#spell "Molten Prison"
+#spell "Children of Pyriphlogos"
+#spell "Magma Forge"
+#spell "Rhuax Legacy"
+#spell "Ally from below"
+#spell "Pack of Fire Drakes"
+#spell "Magmatic Summoning"
+#spell "Children of Rhuax"
+#spell "Summon Magma Spirit"
+#spell "Heatwave"
+#spell "Pits of Rebirth"
+#spell "Summon Ember Lord"
+#spell "Outer Furnace"
+#spell "Rivers of Lava"
+#basechance 0
+#chanceinc nationtag abysian 1
+#chanceinc hasthemetheme abysian 1
+#chanceinc anymagic fire 1
 #chanceinc random 0.25 *0
 #end
 
@@ -189,6 +321,18 @@
 #spell "Summon Rudra"
 #spell "Summon Devata"
 #spell "Summon Devala"
+#spell "Summon Asura"
+#spell "Brew Gandapana Wine"
+#spell "Brahmashirsha Astra"
+#spell "Celestial Mantra"
+#spell "Access Acashic Records"
+#spell "Call Garudas"
+#spell "Weapons of Brahma"
+#spell "Return from the Divine"
+#spell "Celestial Garden"
+#spell "Karmic Wheel"
+#spell "Temple Guardians"
+#spell "Summon Pretas"
 #basechance 0
 #chanceinc nationtag enlightened 1 
 #chanceinc hasthemetheme enlightened 1
@@ -205,6 +349,7 @@
 #spell "Call Yata"
 #spell "Call Greater Daeva"
 #spell "Call of the Drugvant"
+#spell "Horde of Daevas"
 #basechance 0
 #chanceinc anymagic not death -0.5
 #chanceinc random 0.66 -0.5
@@ -219,10 +364,21 @@
 #spell "Call Ahurani"
 #spell "Call Celestial Yazad"
 #spell "Call Fravashi"
+#spell "Release Anu"
 #basechance 1
 #chanceinc anymagic not astral -0.5
 #chanceinc random 0.66 -0.5
 #chanceinc random 0.15 *0
+#chanceinc primaryrace not "Caelian" *0
+#end
+
+#new
+#name "Caelian Air spells"
+#spell "Shield of Aella"
+#spell "Storm Channeling"
+#spell "Favour of Aella"
+basechance 1
+#chanceinc anymagic not air -0.5
 #chanceinc primaryrace not "Caelian" *0
 #end
 
@@ -235,6 +391,7 @@
 #spell "Enliven Granite Guard"
 #spell "Enliven Marble Oracle"
 #spell "Hall of Statues"
+#spell "Awaken Sacred Statue"
 #basechance 0
 #chanceinc anymagic not earth *0
 #chanceinc random 0.25 *0
@@ -247,6 +404,13 @@
 #spell "Barathrus Pact"
 #spell "Olm Conclave"
 #spell "Living Mercury"
+#spell "Blindsense"
+#spell "Summon Stone Power"
+#spell "Traverse the Depths"
+#spell "Crack the Earth"
+#spell "The Underworld Dragon"
+#spell "Journey Through the Earth"
+#spell "Summon Giant Olm"
 #basechance 1
 #chanceinc random 0.25 *0
 #chanceinc anymagic not earth *0
@@ -259,6 +423,9 @@
 #spell "Awaken Shard Wights"
 #spell "Summon Penumbrals"
 #spell "Summon Umbrals"
+#spell "Flesh Golem Construction"
+#spell "Cave Darkness"
+#spell "Army of Iron"
 #basechance 0.5
 #chanceinc magewithpaths earth death 0.5
 #chanceinc random 0.33 -0.5
@@ -282,6 +449,8 @@
 #spell "Summon Danavas"
 #spell "Host of Ganas"
 #spell "Summon Vetalas"
+#spell "Flesh Feast"
+#spell "Summon Pretas"
 #basechance 0
 #chanceinc primaryrace "Primate" 1
 #chanceinc anymagic not blood *0.5
@@ -294,9 +463,39 @@
 #new
 #name "Lizard spells"
 #spell "Sacred Crocodile"
+#spell "Contact Scorpion Lord"
+#spell "Children of the Neters"
+#spell "Beseech Neter of the Sun"
+#spell "Beseech Neter of the Moon"
+#spell "Poison Immunity"
+#spell "Spreading Miasma"
+#spell "Marshes of C'tis"
+#spell "Hail of Poison"
+#spell "Poison Arrow"
 #basechance 0
 #chanceinc primaryrace "Lizard" 1
 #chanceinc random 0.25 *0
+#end
+
+#new
+#name "Lizard Death Spells"
+#spell "C'tissian Reanimation"
+#spell "Release Sheut"
+#spell "Rite of the Three Gates"
+#spell "Create Revenant"
+#spell "Disease Warding"
+#spell "Sauromancy"
+#spell "Summon Spectral Sauromancer"
+#spell "Call Ba Spirit"
+#spell "Akhenaten"
+#spell "Gates of Death"
+#spell "Opening of the Mouth Ceremony"
+#spell "Revive Tomb Prince"
+#spell "Hidden in Tombs"
+#spell "Light the Banefire Braziers"
+#basechance 0
+#chanceinc primaryrace "Lizard" 1
+#chanceinc anymagic not death -0.5
 #end
 
 - Atlantian
@@ -314,9 +513,57 @@
 #new
 #name "Monster Fish"
 #spell "Summon Monster Fish"
+#spell "Summon Coral Snakes"
+#spell "Curse of Choking Brine"
+#spell "Army of Coral"
+#spell "Curse of Thetis"
+#spell "Drown Battlefield"
+#spell "The Scourge of the Deeps"
 #basechance 0
 #chanceinc primaryrace "Atlantian" 1
 #chanceinc primaryrace "Ichtyid" 1
 #chanceinc random 0.125 *0
 #chanceinc anymagic not water *0
 #end
+
+---all magic enhanced from here onwards
+#new
+#name "ME Boreal Blood Spells"
+#spell "Summon the Black Riders
+#spell "Curse of Vampirism"
+#spell "Malediction"
+#spell "Dark Hunger"
+#spell "Raise Ghoul Guardians"
+#spell "Bat Transformation"
+#spell "Curse Township"
+#spell "Curse of Hunger"
+#basechance 0
+#chanceinc nationtag advanced 1
+#chanceinc hasthemetheme ghoul 1
+#chanceinc hasthemetheme blacksteel 0.5
+#chanceinc anymagic not death *0
+#chanceinc anymagic not blood *0.25
+#end
+
+
+--Gaia/Primal nature spells
+#new
+#name "Primal nature Spells"
+#spell "Primal Power"
+#spell "Protection of Gaia"
+#spell "Awaken Sacred Grove"
+#spell "Gaia's Fury"
+#spell "Wrath of the Forest"
+#spell "Invoke the Horned one"
+#basechance 0
+#chanceinc hasthemetheme savage 1
+#chanceinc random 0.25 *0
+#chanceinc anymagic nature 0.25
+#chanceinc nationtag savage 1
+#chanceinc hasthemetheme primitive 1
+#chanceinc nationtag primitive 1
+#chanceinc hasthemetheme civilised -0.5
+#chanceinc nationtag civilised -0.5
+#end
+
+---arco summon spells
