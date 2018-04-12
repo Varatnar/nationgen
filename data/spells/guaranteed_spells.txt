@@ -57,7 +57,6 @@
 #spell "Celestial Army"
 #spell "Petition Zhurong"
 #spell "Prepare Sacred Herbs"
-#spell "Become Celestial Immortal"
 #spell "Awaken Gong Gong"
 #basechance 0
 #chanceinc nationtag oriental 1
@@ -544,26 +543,3 @@ basechance 1
 #chanceinc anymagic not death *0
 #chanceinc anymagic not blood *0.25
 #end
-
-
---Gaia/Primal nature spells
-#new
-#name "Primal nature Spells"
-#spell "Primal Power"
-#spell "Protection of Gaia"
-#spell "Awaken Sacred Grove"
-#spell "Gaia's Fury"
-#spell "Wrath of the Forest"
-#spell "Invoke the Horned one"
-#basechance 0
-#chanceinc hasthemetheme savage 1
-#chanceinc random 0.25 *0
-#chanceinc anymagic nature 0.25
-#chanceinc nationtag savage 1
-#chanceinc hasthemetheme primitive 1
-#chanceinc nationtag primitive 1
-#chanceinc hasthemetheme civilised -0.5
-#chanceinc nationtag civilised -0.5
-#end
-
----arco summon spells

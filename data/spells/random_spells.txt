@@ -256,8 +256,9 @@
 #spell "Mechanical Icarids"
 #spell "Construct Talos"
 #spell "Defences of Daidalos"
+#spell "Abysian Emprisonment"
 #basechance 0
-#chanceinc anymagic earth 0.2
+#chanceinc anymagic not earth *0.05
 #chanceinc hasthemetheme bronze 0.2
 #chanceinc nationtag bronze 0.2
 #chanceinc command #slothresearch *5
@@ -275,8 +276,10 @@
 #spell "Dissolve into Atoms"
 #spell "Illusion of Motion"
 #spell "Call to Adventure"
+#spell "Celestial Fires"
+#spell "Summon Divine Hero"
 #basechance 0
-#chanceinc anymagic astral 0.2
+#chanceinc anymagic not astral *0.05
 #chanceinc hasthemetheme bronze 0.2
 #chanceinc nationtag bronze 0.2
 #chanceinc command #slothresearch *5
@@ -296,7 +299,7 @@
 #chanceinc random 0.25 *0
 #chanceinc hasthemetheme bronze 0.1
 #chanceinc command #slothresearch *5
-#chanceinc nationtag bronze 0.1
+#chanceinc nationtag bronze 0.1d
 #chanceinc spells "Oni Summons" *0
 #chanceinc spells "TC ancestor spells" *0
 #end
@@ -331,6 +334,51 @@
 #end
 
 #new
-#name "advanced human spells"
+#name "Holy spells"
+#spell "Healing Hands"
+#spell "Faith Healing
+#spell "Halt Demon"
+#spell "Divine Healing"
+#spell "Conversion"
+#basechance 0.1
+#end
 
+#new
+#name "Holy crosspath"
+#spell "Blessings of the Numina"
+#spell "Protection of the Numina"
+#spell "Secrets of the Numina"
+Basechance 0
+#chanceinc magewithpaths fire holy 1
+#end
+
+#new
+#name "EA Ermor death"
+#spell "Raise Longdead Century"
+#spell "Raise Longdead Legion"
+#basechance 0
+#chanceinc anymagic death 0.025
+#chanceinc primaryrace not human *0
+#end
+
+---Gaia/Primal nature spells
+#new
+#name "Primal nature Spells"
+#spell "Primal Power"
+#spell "Protection of Gaia"
+#spell "Awaken Sacred Grove"
+#spell "Gaia's Fury"
+#spell "Wrath of the Forest"
+#spell "Invoke the Horned one"
+#basechance 0
+#chanceinc hasthemetheme savage 1
+#chanceinc random 0.25 *0
+#chanceinc anymagic nature 0.25
+#chanceinc nationtag savage 1
+#chanceinc hasthemetheme primitive 1
+#chanceinc nationtag primitive 1
+#chanceinc hasthemetheme civilised *0
+#chanceinc nationtag civilised *0
+#chanceinc hasthemetheme advanced *0
+#chanceinc nationtag advanced *0
 #end
