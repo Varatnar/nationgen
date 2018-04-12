@@ -1,2 +1,2 @@
-# nationgen
-Dominions 4 procedural content generation program
+# Magic Enhanced nationgen
+Dominions 5 procedural content generation program, forked from elmokki's to include Magic Enhanced content.
