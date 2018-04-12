@@ -36,6 +36,7 @@
 #spell "Ancestral Host"
 #spell "Summon Ancestral Rider"
 #spell "Contact Ancestors"
+#spell "Consult Ancestors"
 #basechance 0
 #chanceinc nationtag oriental 1
 #chanceinc hasthemetheme oriental 1
@@ -272,6 +273,7 @@
 #new
 #name "Abysian spells"
 #spell "Inner Furnace"
+#spell "Blast of Flames"
 #spell "Summon Spectral Infantry"
 #spell "The Underworld Dragon"
 #spell "Teachings of Malphas"
@@ -542,4 +544,155 @@ basechance 1
 #chanceinc hasthemetheme blacksteel 0.5
 #chanceinc anymagic not death *0
 #chanceinc anymagic not blood *0.25
+#end
+
+-- ashen spells
+#new
+#name "Ashen summons"
+#spell "Wails of the Damned"
+#spell ""
+#basechance 0
+#chanceinc nationtag reanimation 1
+#chanceinc command #undead 0.025
+#end
+
+#new
+#name "Boreal death spells"
+#spell "Warrior Spirit"
+#spell "Shaman Spirit"
+#spell "Summon Spirit Warriors"
+#basechance 0 
+#chanceinc nationtag boreal 1
+#chanceinc hasthemetheme boreal 1
+#chanceinc anyunitfilter warriorculture 1
+#chanceinc hasfil
+#chanceinc anymagic not death *0
+#chanceinc spells "Maverni Nature" *0
+#end
+
+#new
+#name "Ulm forge spells"
+#spell "Inferior Armaments"
+#spell "Hammer the Arcane"
+#spell "Protection of the Smithy"
+#spell "Ringing of the Forge"
+#spell "Sharpen Steel"
+#spell "Temper Steel"
+#spell "Strength of Steel"
+#spell "Saviour of Iron"
+#basechance 0
+#chanceinc nationtag boreal *1.1
+#chanceinc hasthemetheme boreal *1.1
+#chanceinc command not #resources *0
+#chanceinc anymagic not earth *0
+#chanceinc anyunitfilter warriorculture 1
+#chanceinc spells "Maverni Nature" *0
+#end
+
+#new
+#name "Daughters of the Rhine"
+#spell "Daughters of the Rhine"
+#basechance 0
+#chanceinc anymagic not water *0
+#chanceinc anyunitfilter warriorculture 1
+#end
+
+--Maverni
+#new
+#name "Maverni Nature"
+#spell "Build Wicker Man"
+#spell "Strength of Boars"
+#spell "Stampede"
+#spell "Awaken Warriors"
+#spell "Awaken Army"
+#spell "Spirit of the Boar"
+#spell "Summon Picts"
+#spell "Summon Pict Tribe"
+#basechance 0
+#chanceinc magewithpaths nature holy 1
+#chanceinc nationtag not boreal *0
+#chanceinc hasthemetheme not boreal *0
+#chanceinc spells "TC non-death spells" *0
+#chanceinc spells "Ulm forge spells" *0
+#chanceinc spells "Lizard spells" *0
+#end
+
+#new
+#name "Maverni Astral"
+#spell "Fate of the Druids"
+#spell "Averted Fate"
+#spell "Mass Averted Fate"
+#basechance 0
+#chanceinc anytheme boreal 1
+#chanceinc nationtag boreal 1
+#chanceinc primaryrace human 0.5
+#chanceinc anymagic not astral *0
+#chanceinc nationtag not boreal *0
+#chanceinc hasthemetheme not boreal *0
+#chanceinc spells "TC non-death spells" *0
+#chanceinc spells "Ulm forge spells" *0
+#chanceinc spells "Lizard spells" *0
+#
+#end
+
+--machaka
+
+#new
+#name "machaka spells"
+#spell "Toughened Hide"
+#spell "King of Beasts"
+#spell "Roar of the Lion"
+#spell "Call Totem Spirit"
+#spell "Contact Aziza"
+#spell "Mokele-mbembe"
+#spell "Cave of the Grootslang"
+#spell "Contact Adze"
+#spell "Summon Biloko"
+#basechance 0
+#chanceinc nationtag occidental 1
+#chanceinc hasthemetheme occidental 1
+#chanceinc magewithpaths nature death 1
+#chanceinc spells "Maverni Astral" *0
+#chanceinc spells "Maverni Nature" *0
+#chanceinc hasthemetheme primitive 1
+#chanceinc nationtag primitive 1
+#end
+
+#new
+#name "spiders"
+#spell "Summon lesser Hunters"
+#spell "Hunters Web"
+#spell "Poison Web"
+#spell "Enlarge Spider"
+#spell "Send Hunter Spider"
+#spell "Spider Bites"
+#spell "Plague of Spiders"
+#spell "Spider Infestation"
+#spell "Spider Sight"
+#basechance 0
+#chanceinc personalshape spider or hunter 1
+#chanceinc magewithpaths nature death 1
+#end
+
+
+--amazons/Sauromatia
+
+#new
+#name "Sauro Misc"
+#spell "Androphagy"
+#basechance 0
+#chanceinc nationtag amazon 1
+#chanceinc hasthemetheme amazon 1
+#chanceinc nationtag occidental 1
+#chanceinc hasthemetheme occidental 1
+#chanceinc anymagic not blood *0
+#end
+
+#new
+#name "Sauro Priest spells"
+#spell "Prayers of Battle"
+#spell "Eye of the Gods"
+#basechance 0
+#chanceinc nationtag matriarchal 1
+#chanceinc hasthemetheme matriarchal 1
 #end

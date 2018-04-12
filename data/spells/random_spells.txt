@@ -26,6 +26,7 @@
 #new
 #name "Sanguine Heritage"
 #spell "Sanguine Heritage"
+#spell "The Beast of the Night"
 #basechance 0
 #chanceinc magic blood 0.025
 #chanceinc anymagic death 0.025
@@ -282,7 +283,7 @@
 #chanceinc anymagic not astral *0.05
 #chanceinc hasthemetheme bronze 0.2
 #chanceinc nationtag bronze 0.2
-#chanceinc command #slothresearch *5
+#chanceinc command #slothresearch 1
 #chanceinc anymagic not astral *0
 #chanceinc hasthemetheme blacksteel *0
 #chanceinc nationtag blacksteel *0
@@ -298,7 +299,7 @@
 #basechance 0.015
 #chanceinc random 0.25 *0
 #chanceinc hasthemetheme bronze 0.1
-#chanceinc command #slothresearch *5
+#chanceinc command #slothresearch 1
 #chanceinc nationtag bronze 0.1d
 #chanceinc spells "Oni Summons" *0
 #chanceinc spells "TC ancestor spells" *0
@@ -358,6 +359,8 @@ Basechance 0
 #spell "Raise Longdead Legion"
 #basechance 0
 #chanceinc anymagic death 0.025
+#chanceinc nationtag reanimation 0.075
+#chanceinc command #undead 0.025
 #chanceinc primaryrace not human *0
 #end
 
@@ -381,4 +384,56 @@ Basechance 0
 #chanceinc nationtag civilised *0
 #chanceinc hasthemetheme advanced *0
 #chanceinc nationtag advanced *0
+#end
+
+
+#new
+#name "Egeria"
+#spell "Egeria"
+#basechance 0.01
+#chanceinc anymagic astral 0.2
+#chanceinc anytheme imperial
+#end
+
+#new
+#name "Hades"
+#spell "The Guardian of Hades"
+#spell "The Gates of Death"
+#basechance 0.01
+#chanceinc anymagic death 0.2
+#chanceinc command #undead 0.025
+#end
+
+#new
+#name "Wolfpack"
+#spell "Summon Wolfpack"
+#basechance 0.01
+#chanceinc anymagic nature 0.2
+#end
+
+#new
+#name "Wolfpack"
+#spell "Samhain"
+#basechance 0.01
+#chanceinc anymagic not nature *0
+#chanceinc anytheme boreal 1
+#chanceinc nationtag boreal 1
+#end
+
+#new
+#name "Hydra spells"
+#spell "Hydra Brood"
+#spell "Hydra Hatchling"
+#basechance 0
+#chanceinc anymagic nature 1
+#end
+
+
+#new
+#name "Obsidian Butterfly"
+#spell "The Obsidian Butterfly"
+#basechance 0
+#chanceinc nationtag occidental 1
+#chanceinc hasthemetheme occidental 1
+#chanceinc
 #end
