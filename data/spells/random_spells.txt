@@ -7,6 +7,11 @@
 #new
 #name "Orgy"
 #spell "Orgy"
+#spell "Incite Passion"
+#spell "Madness of the Wild"
+#spell "Music of the Wild"
+#spell "Call Lord of the Wild"
+#spell "Stir the Blood"
 #basechance 0.0
 #chanceinc anymagic nature 0.125
 #chanceinc anymagic blood 0.125
@@ -157,6 +162,15 @@
 #end
 
 
+#new
+#name "Summon Animals"
+#spell "Summon Animals"
+#spell "Pack of Animals"
+#spell "Forest Horde"
+#basechance 0.05
+#chanceinc magic nature *10
+#chanceinc anymagic not nature *0
+#end
 
 --- Fire
 #new
@@ -375,6 +389,7 @@ Basechance 0
 #spell "Invoke the Horned one"
 #basechance 0
 #chanceinc hasthemetheme savage 1
+#chanceinc primaryrace "Halfmen" 1
 #chanceinc random 0.25 *0
 #chanceinc anymagic nature 0.25
 #chanceinc nationtag savage 1
@@ -436,4 +451,24 @@ Basechance 0
 #chanceinc nationtag occidental 1
 #chanceinc hasthemetheme occidental 1
 #chanceinc
+#end
+
+#new
+#name "sidhe nature rand"
+#spell "Summon Bramble Spirit"
+#spell "Summon Thistle Spirit"
+#spell "Cad Coddeu"
+#spell "Summon Urisk"
+#spell "Send Puck"
+#spell "The Fair Folk"
+#chanceinc anymagic nature 1
+#chanceinc random 0.15 *0
+#end
+
+#new
+#name "Contact Nemedian"
+#spell "Contact Nemedian"
+#basechance 0.05
+#chanceinc anymagic air *2
+#chanceinc primaryrace "Sidhe" or "Van" *10
 #end

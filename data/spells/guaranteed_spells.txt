@@ -291,7 +291,7 @@
 #spell "Children of Pyriphlogos"
 #spell "Magma Forge"
 #spell "Rhuax Legacy"
-#spell "Ally from below"
+#spell "Ally from Below"
 #spell "Pack of Fire Drakes"
 #spell "Magmatic Summoning"
 #spell "Children of Rhuax"
@@ -301,6 +301,7 @@
 #spell "Summon Ember Lord"
 #spell "Outer Furnace"
 #spell "Rivers of Lava"
+#spell "Children of Catharsis"
 #basechance 0
 #chanceinc nationtag abysian 1
 #chanceinc hasthemetheme abysian 1
@@ -308,6 +309,18 @@
 #chanceinc random 0.25 *0
 #end
 
+#new
+#name "diluted abysians"
+#spell "Teachings of the Flame Cult"
+#spell "Children of the Sacred Father"
+#spell "Children of Antrax"
+#spell "Ally from the Banefires"
+#spell "Summon Banefire Spirit"
+#basechance 0
+#chanceinc nationtag abysian 1
+#chanceinc hasthemetheme diluted 1
+#chanceinc anymagic fire 1
+end
 - Enlightened
 ----------
 
@@ -615,6 +628,7 @@ basechance 1
 #chanceinc spells "TC non-death spells" *0
 #chanceinc spells "Ulm forge spells" *0
 #chanceinc spells "Lizard spells" *0
+#chanceinc spells "sidhe nature" *0
 #end
 
 #new
@@ -632,7 +646,7 @@ basechance 1
 #chanceinc spells "TC non-death spells" *0
 #chanceinc spells "Ulm forge spells" *0
 #chanceinc spells "Lizard spells" *0
-#
+#chanceinc spells "sidhe nature" *0
 #end
 
 --machaka
@@ -654,6 +668,7 @@ basechance 1
 #chanceinc magewithpaths nature death 1
 #chanceinc spells "Maverni Astral" *0
 #chanceinc spells "Maverni Nature" *0
+#chanceinc spells "sidhe nature" *0
 #chanceinc hasthemetheme primitive 1
 #chanceinc nationtag primitive 1
 #end
@@ -672,6 +687,7 @@ basechance 1
 #basechance 0
 #chanceinc personalshape spider or hunter 1
 #chanceinc magewithpaths nature death 1
+#chanceinc spells "sidhe nature" *0
 #end
 
 
@@ -696,3 +712,49 @@ basechance 1
 #chanceinc nationtag matriarchal 1
 #chanceinc hasthemetheme matriarchal 1
 #end
+
+--halfmen
+#new
+#name "halfmen advanced"
+#spell "Betrayal of Gaia"
+#basechance 0
+#chanceinc primaryrace not "Halfmen" 0
+#chanceinc hasthemetheme advanced 1
+#end
+
+--sidhe
+
+#new
+#name "sidhe air"
+#spell "Phantasmal Sidhe"
+#spell "Fata Morgana"
+#spell "Phantasmal Sidhe Army"
+#spell "Phantasmal Sidhe Attack"
+#spell "Ghost Cu Sidhe"
+#spell "Ensnaring Glamour"
+#spell "Fey Fascination"
+#spell "Contact Nemedian"
+#spell "Mists of the Blessed Isle"
+#basechance 0
+#chanceinc anymagic air 1
+#chanceinc primaryrace not "Sidhe" *0
+#end
+
+#new
+#name "sidhe nature"
+#spell "Summon Bramble Spirit"
+#spell "Summon Thistle Spirit"
+#spell "Cad Coddeu"
+#spell "Summon Urisk"
+#spell "Send Puck"
+#spell "The Fair Folk"
+#spell "Bind Korrigan"
+#spell "Erect Dolmen"
+#basechance 0
+#chanceinc anymagic nature 1
+#chanceinc primaryrace not "Sidhe" *0
+#chanceinc spells "Maverni Astral" *0
+#chanceinc spells "Maverni Nature" *0
+#end
+
+--fomorian
