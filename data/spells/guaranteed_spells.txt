@@ -769,9 +769,11 @@ basechance 1
 #spell "Spider Infestation"
 #spell "Spider Sight"
 #basechance 0
-#chanceinc personalshape spider or hunter 1
 #chanceinc magewithpaths nature death 1
+#chanceinc nationtag occidental 1
+#chanceinc hasthemetheme occidental 1
 #chanceinc spells "sidhe nature" *0
+#chanceinc spells "Maverni Nature" *0
 #end
 
 
@@ -858,7 +860,7 @@ basechance 1
 #spell "Fomorian Plague"
 #spell "Lords of the Watery Dead"
 #basechance 0
-#chanceinc primaryrace "Fomorian" 1
+#chanceinc primaryrace fomorian 1
 #end
 
 
@@ -896,7 +898,7 @@ basechance 1
 #spell "Hunger of the Rephaim"
 #spell "Banquet of the Melquarts"
 #basechance 0
-#chanceinc race "Avvite" 1
+#chanceinc primaryrace Avvite 1
 #chanceinc anymagic not blood *0
 #end
 
@@ -913,7 +915,7 @@ basechance 1
 #spell "Teachings of Arakiel"
 #spell "Chaos Serpent"
 #basechance 0
-#chanceinc race "Avvite" 1
+#chanceinc primaryrace Avvite 1
 #end
 
 #new
@@ -925,7 +927,7 @@ basechance 1
 #spell "Lightning Storm"
 #basechance 0
 #chanceinc magewithpaths air water 1
-#chanceinc command sailing 1
+#chanceinc command #sailing 1
 #chanceinc nationtag fae *0
 #chanceinc hasthemetheme fae *0
 #end
@@ -943,10 +945,9 @@ basechance 1
 #spell "Aura of Tyranny"
 #spell "Mental Oppression"
 #basechance 0
-#chanceinc nationtag slaver 1
-#chanceinc hasthemetheme slaver 1
+#chanceinc hasthemetheme not slaver *0
 #chanceinc magewithpaths fire earth 1
-#chanceinc anymagic not fire and not earth *0
+#chanceinc picksatlevel 4 2 *0
 #end
 
 #new
@@ -976,8 +977,8 @@ basechance 1
 #spell "Create Shoggoth Horde"
 #spell "Create Shoggoth Monstrosity"
 #basechance 0
-#chanceinc anymagic water 1
-#chanceinc primaryrace not "Illithid" *0
+#chanceinc primaryrace Illithid 1
+#chanceinc anymagic not astral *0
 #end
 
 #new
@@ -987,8 +988,8 @@ basechance 1
 #spell "Call the Burrowers Beneath"
 #spell "Chthonian Earthquake"
 #basechance 0
-#chanceinc anymagic earth 1
-#chanceinc primaryrace not "Illithid" *0
+#chanceinc primaryrace Illithid 1
+#chanceinc anymagic not earth *0
 #end
 
 #new
@@ -997,8 +998,8 @@ basechance 1
 #spell "Visions of the Void"
 #spell "Call colour from the Spheres"
 #basechance 0
-#chanceinc magewithpaths death astral 1
-#chanceinc primaryrace not "Illithid" *0
+#chanceinc primaryrace Illithid 1
+#chanceinc anymagic not astral *0
 #end
 
 --pelagia and related things not ingame
@@ -1014,7 +1015,7 @@ basechance 1
 #chanceinc hasthemetheme black 1
 #chanceinc nationtag black 1
 #chanceinc magewithpaths death nature 1
-#chanceinc primaryrace not "Halfmen" *0
+#chanceinc primaryrace not halfmen *0
 #end
 
 --dynastic
@@ -1035,8 +1036,6 @@ basechance 1
 #basechance 0
 #chanceinc hasthemetheme dynastic 1
 #chanceinc nationtag dynastic 1
-#chanceinc hasthemetheme dynastichuman 1
-#chanceinc nationtag dynastichuman 1
 #end
 
 #new
