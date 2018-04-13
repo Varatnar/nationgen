@@ -837,7 +837,7 @@ basechance 1
 #spell "Erect Dolmen"
 #spell "The Fairy Rade"
 #spell "Paths of the Tuatha"
-#spell "Summon Redcap"
+#spell "Summon Redcaps"
 #basechance 0
 #chanceinc anymagic not nature *0
 #chanceinc nationtag fae 0.05
@@ -862,7 +862,7 @@ basechance 1
 #new
 #name "Formorian death"
 #spell "Call Morrigans"
-#spell "Robin Redcaps"
+#spell "Robin Redcap"
 #spell "Jenny Greenteeth"
 #spell "Call the Fianna"
 #spell "Hidden Knowledge"
