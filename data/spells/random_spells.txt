@@ -299,7 +299,7 @@
 #spell "Call to Adventure"
 #spell "Celestial Fires"
 #spell "Summon Divine Hero"
-#basechance 0
+#basechance 0.1
 #chanceinc anymagic not astral *0.05
 #chanceinc hasthemetheme bronze 0.2
 #chanceinc nationtag bronze 0.2
@@ -307,7 +307,6 @@
 #chanceinc anymagic not astral *0
 #chanceinc hasthemetheme blacksteel *0
 #chanceinc nationtag blacksteel *0
-#chanceinc primaryrace not  human *0
 #end
 
 #new
@@ -445,7 +444,7 @@
 #name "Hydra spells"
 #spell "Hydra Brood"
 #spell "Hydra Hatchling"
-#basechance 0
+#basechance 0.1
 #chanceinc anymagic nature 1
 #end
 
@@ -456,7 +455,6 @@
 #basechance 0
 #chanceinc nationtag occidental 1
 #chanceinc hasthemetheme occidental 1
-#chanceinc
 #end
 
 #new
@@ -467,7 +465,10 @@
 #spell "Summon Urisk"
 #spell "Send Puck"
 #spell "The Fair Folk"
-#chanceinc anymagic nature 1
+#basechance 0
+#chanceinc anymagic nature 0.5
+#chanceinc hasthemetheme fae *2
+#chanceinc nationtag fae *2
 #chanceinc random 0.15 *0
 #end
 

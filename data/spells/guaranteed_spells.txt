@@ -863,7 +863,6 @@ basechance 1
 #chanceinc primaryrace fomorian 1
 #end
 
-
 #new
 #name "Formorian death"
 #spell "Call Morrigans"
