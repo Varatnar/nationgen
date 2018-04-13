@@ -88,13 +88,13 @@
 #name "Yomi Spells"
 #spell "Ghost General"
 #spell "Summon Gozu Mezu"
----ME
 #spell "Summon Shikome"
 #spell "The Four Holy Beasts"
 #spell "Call the Tesso"
 #spell "End of Days"
 #spell "End of Courage"
 #spell "Dark Bolt"
+#spell "Hunger of the Oni"
 #basechance 0
 #chanceinc nationtag oriental 1
 #chanceinc hasthemetheme oriental 1
@@ -114,7 +114,6 @@
 #spell "Contact Yama-no-kami"
 #spell "Contact Tatsu"
 #spell "Summon Ujigami"
----ME
 #spell "Tengu Clanhold"
 #spell "Contact Raijin"
 #spell "Summon Yuki-Onna"
@@ -232,6 +231,11 @@
 #spell "Capture Fay Boar"
 #spell "Contact Dwarf Elder"
 #spell "Visit Yggdrasil"
+#spell "Return from Hel"
+#spell "Call Winter Wolf"
+#spell "Animate Ice"
+#spell "Howl of the Fenrer"
+#spell "Winds of Niefelheim"
 #basechance 0
 #chanceinc nationtag nordic 1
 #chanceinc hasthemetheme nordic 1
@@ -242,16 +246,37 @@
 ---ME
 #new
 #name "Air Van spells"
-#spell "Flight of the vanir"
+#spell "Flight of the Vanir"
 #spell "Ride of the Valkyries"
 #spell "Flight of the Valkyries"
 #spell "Rescue from the Skies"
 #spell "Hidden in Barrows"
+#spell "Call from Valhalla"
 #basechance 0
 #chanceinc nationtag nordic 1
 #chanceinc hasthemetheme nordic 1
 #chanceinc anymagic air 1
 #chanceinc random 0.25 *0
+#chanceinc spells "midgard spells" *0
+#end
+
+
+#new
+#name "midgard spells"
+#spell "Galdr of Madness"
+#spell "Galdr against Arrows"
+#spell "Galdr against Blades"
+#spell "Hidden in Barrows"
+#spell "Summon Groa"
+#spell "Dishird Attacl"
+#spell "Endurance of Giants"
+#spell "Send Mara"
+#spell "Steal Vitality"
+#basechance 0
+#chanceinc nationtag nordic 1
+#chanceinc hasthemetheme nordic 1
+#chanceinc spells "air van spells" *0
+#chanceinc spells "Blood Van spells" *0
 #end
 
 --requires blood access
@@ -260,12 +285,27 @@
 #spell "Blood Portent"
 #spell "Gift of the Einhere"
 #spell "Battle Fury"
+#spell "Ragnarok"
 #basechance 0
 #chanceinc nationtag nordic 1
 #chanceinc hasthemetheme nordic 1
 #chanceinc anymagic not blood *0
 #chanceinc random 0.25 *0
+#chanceinc spells "midgard spells" *0
 #end
+
+#new 
+#name "vanir Holy"
+#spell "Blood Portent"
+#spell "Curse of the Berserker"
+#spell "Offering to the Fates"
+#spell "Battle Fury"
+#basechance 0
+#chanceinc nationtag not nordic *0
+#chanceinc magewithpaths blood holy 1
+#chanceinc anymagic not blood *0
+#end
+
 
 - Abysian
 -----------
@@ -347,6 +387,8 @@ end
 #spell "Karmic Wheel"
 #spell "Temple Guardians"
 #spell "Summon Pretas"
+#spell "Summon Ambush of Tigers"
+#spell "Shesanaga"
 #basechance 0
 #chanceinc nationtag enlightened 1 
 #chanceinc hasthemetheme enlightened 1
@@ -393,6 +435,14 @@ end
 #spell "Favour of Aella"
 basechance 1
 #chanceinc anymagic not air -0.5
+#chanceinc primaryrace not "Caelian" *0
+#end
+
+#new
+#name "Caelian Other spells"
+#spell "Icy Blast"
+basechance 1
+#chanceinc anymagic not water -0.5
 #chanceinc primaryrace not "Caelian" *0
 #end
 
@@ -624,8 +674,9 @@ basechance 1
 #basechance 0
 #chanceinc magewithpaths nature holy 1
 #chanceinc nationtag not boreal *0
+#chanceinc nationtag fae 0.05
+#chanceinc hasthemetheme fae 0.05
 #chanceinc hasthemetheme not boreal *0
-#chanceinc spells "TC non-death spells" *0
 #chanceinc spells "Ulm forge spells" *0
 #chanceinc spells "Lizard spells" *0
 #chanceinc spells "sidhe nature" *0
@@ -736,8 +787,10 @@ basechance 1
 #spell "Contact Nemedian"
 #spell "Mists of the Blessed Isle"
 #basechance 0
-#chanceinc anymagic air 1
-#chanceinc primaryrace not "Sidhe" *0
+#chanceinc anymagic not air *0
+#chanceinc nationtag fae 0.05
+#chanceinc hasthemetheme fae 0.05
+#chanceinc spells "Formorian death" *0
 #end
 
 #new
@@ -750,11 +803,91 @@ basechance 1
 #spell "The Fair Folk"
 #spell "Bind Korrigan"
 #spell "Erect Dolmen"
+#spell "The Fairy Rade"
+#spell "Paths of the Tuatha"
+#spell "Summon Redcap"
 #basechance 0
-#chanceinc anymagic nature 1
-#chanceinc primaryrace not "Sidhe" *0
+#chanceinc anymagic not nature *0
+#chanceinc nationtag fae 0.05
+#chanceinc hasthemetheme fae 0.05
 #chanceinc spells "Maverni Astral" *0
 #chanceinc spells "Maverni Nature" *0
+#chanceinc spells "Formorian death" *0
 #end
 
 --fomorian
+
+#new
+#name "Fomorian Plague"
+#spell "Fomorian Plague"
+#spell "Lords of the Watery Dead"
+#basechance 0
+#chanceinc primaryrace "Fomorian" 1
+#end
+
+
+#new
+#name "Formorian death"
+#spell "Call Morrigans"
+#spell "Robin Redcap"
+#spell "Jenny Greenteeth"
+#spell "Call the Fianna"
+#spell "Hidden Knowledge"
+#spell "Call the Drowned"
+#spell "Call Drowned Spirits"
+#spell "Spirits of the Drowned"
+#basechance 0
+#chanceinc primaryrace "Fomorian" 1
+#chanceinc nationtag nordic 1
+#chanceinc hasthemetheme nordic 1
+#chanceinc spells "Maverni Astral" *0
+#chanceinc spells "Maverni Nature" *0
+#chanceinc spells "sidhe nature" *0
+#chanceinc spells "sidhe air" *0
+#end
+
+--
+
+#new
+#name "Giants"
+#spell "Summon sons of Mim"
+#spell "The Well of Knowledge"
+#spell "Niefel Winter"
+#spell "Entomb in Ice"
+#basechance 0 
+#chanceinc race giant *50
+#chanceinc nationtag nordic 1
+#chanceinc hasthemetheme nordic 1
+#chanceinc race not giant *0
+#end
+
+#new
+#name "hinnom blood"
+#spell "Banquet of Flesh"
+#spell "Consume Strength"
+#spell "Consume Heart"
+#spell "Call Unclean Spirits"
+#spell "Celestial Abominations"
+#spell "Return of the Nephilim"
+#spell "Strenghth of Blood"
+#spell "Hunger of the Rephaim"
+#spell "Banquet of the Melquarts"
+#basechance 0
+#chanceinc race "Avvite" 1
+#chanceinc anymagic not blood *0
+#end
+
+#new
+#name "hinnom misc"
+#spell "Requiem for the dead"
+#spell "Ten Plagues"
+#spell "Create Rephaite Lich King"
+#spell "Release Azazel"
+#spell "Teachings of Semyaza"
+#spell "Teachings of Ezekiel"
+#spell "Teachings of Shamshiel"
+#spell "Teachings of Kokabel"
+#spell "Teachings of Arakiel"
+#basechance 0
+#chanceinc race "Avvite" 1
+#end

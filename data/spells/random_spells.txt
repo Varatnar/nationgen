@@ -472,3 +472,67 @@ Basechance 0
 #chanceinc anymagic air *2
 #chanceinc primaryrace "Sidhe" or "Van" *10
 #end
+
+
+#new
+#name "Formorian death"
+#spell "Call Morrigans"
+#spell "Robin Redcap"
+#spell "Jenny Greenteeth"
+#spell "Call the Fianna"
+#spell "Hidden Knowledge"
+#spell "Summon Nuckelavee"
+#spell "Headless Horseman"
+#spell "Contact Morrigan Sisters"
+#spell "Call Murduchann"
+#basechance 0.01
+#chanceinc hasthemetheme boreal *3
+#chanceinc anymagic death *2
+#chanceinc spells "Maverni Astral" *0
+#chanceinc spells "Maverni Nature" *0
+#chanceinc spells "sidhe nature" *0
+#chanceinc spells "sidhe air" *0
+#end
+
+#new
+#name "Helheim spells"
+#spell "Call the Dishird"
+#spell "Dishird Attack"
+#spell "Brunhilde"
+#basechance 0.01
+#chanceinc anymagic not death *0
+#chanceinc race giant *50
+#end
+
+#new
+#name "Nordic random"
+#spell "Pack of Dire Wolves"
+#spell "Call of the Iron Woods"
+#spell "Blessing of Niefelheim"
+#spell "Weave Fate"
+#spell "Weave Destiny"
+#spell "Celestial Mantra"
+#spell "Access Acashic Records"
+#basechance 0
+#chanceinc nationtag nordic 1
+#chanceinc hasthemetheme nordic 1
+#name
+
+#new
+#name "nagas"
+#spell "Serpent Gaze"
+#spell "Serpent Dance"
+#spell "Contact Jeweled City"
+#basechance 0.01
+#chanceinc race naga 2
+#chanceinc nationtag occidental 1
+#chanceinc hasthemetheme occidental 1
+#end
+
+#new
+#name "bind Lilith"
+#spell "Bind Lilith"
+#basechance 0
+#chanceinc anymagic blood 1
+#chanceinc random 0.5 *0
+#end
