@@ -229,7 +229,7 @@
 #spell "Royal Protection"
 #basechance 0
 #chanceinc nationtag reanimation 0.075
-#chanceinc command #undead 0.025
+#chanceinc command undead 0.025
 #chanceinc diversity not 3 *2
 #chanceinc diversity not 2 *2
 #end
@@ -276,7 +276,7 @@
 #chanceinc anymagic not earth *0.05
 #chanceinc hasthemetheme bronze 0.2
 #chanceinc nationtag bronze 0.2
-#chanceinc command #slothresearch *5
+#chanceinc command slothresearch *5
 #chanceinc anymagic not earth *0
 #chanceinc hasthemetheme blacksteel *0
 #chanceinc nationtag blacksteel *0
@@ -297,7 +297,7 @@
 #chanceinc anymagic not astral *0.05
 #chanceinc hasthemetheme bronze 0.2
 #chanceinc nationtag bronze 0.2
-#chanceinc command #slothresearch 1
+#chanceinc command slothresearch 1
 #chanceinc anymagic not astral *0
 #chanceinc hasthemetheme blacksteel *0
 #chanceinc nationtag blacksteel *0
@@ -313,7 +313,7 @@
 #basechance 0.015
 #chanceinc random 0.25 *0
 #chanceinc hasthemetheme bronze 0.1
-#chanceinc command #slothresearch 1
+#chanceinc command slothresearch 1
 #chanceinc nationtag bronze 0.1d
 #chanceinc spells "Oni Summons" *0
 #chanceinc spells "TC ancestor spells" *0
@@ -329,7 +329,7 @@
 #spell "Contact Nephelae"
 #basechance 0.015
 #chanceinc hasthemetheme civilised 1
-#chanceinc command #slothresearch *5
+#chanceinc command slothresearch *5
 #chanceinc nationtag civilised 1
 #end
 
@@ -374,7 +374,7 @@ Basechance 0
 #basechance 0
 #chanceinc anymagic death 0.025
 #chanceinc nationtag reanimation 0.075
-#chanceinc command #undead 0.025
+#chanceinc command undead 0.025
 #chanceinc primaryrace not human *0
 #end
 
@@ -416,7 +416,7 @@ Basechance 0
 #spell "The Gates of Death"
 #basechance 0.01
 #chanceinc anymagic death 0.2
-#chanceinc command #undead 0.025
+#chanceinc command undead 0.025
 #end
 
 #new
@@ -611,6 +611,7 @@ Basechance 0
 #name "The Knights of Avalon"
 #spell "Call Wandering Knight" 
 #spell "The Knights of Avalon"
+#basechance 0
 #chanceinc nationtag boreal 0.5
 #chanceinc anymagic nature 0.5
 #chanceinc random 0.25 *0
