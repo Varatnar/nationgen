@@ -521,9 +521,10 @@
 #spell "Weave Destiny"
 #spell "Celestial Mantra"
 #spell "Access Acashic Records"
-#basechance 0
-#chanceinc nationtag nordic 1
-#chanceinc hasthemetheme nordic 1
+#basechance 0.15
+#chanceinc nationtag nordic *2
+#chanceinc hasthemetheme nordic *2
+#chanceinc anymagic astral 1
 #end
 
 #new
