@@ -249,7 +249,7 @@
 #spell "Flight of the Valkyries"
 #spell "Rescue from the Skies"
 #spell "Hidden in Barrows"
-#spell "Call from Valhalla"
+#spell "Call from Vanhalla"
 #basechance 0
 #chanceinc nationtag nordic 1
 #chanceinc hasthemetheme nordic 1
@@ -534,7 +534,7 @@ basechance 1
 #spell "Marshes of C'tis"
 #spell "Hail of Poison"
 #spell "Poison Arrow"
-#spell "Snakebite"\
+#spell "Snakebite"
 #basechance 0
 #chanceinc primaryrace "Lizard" 1
 #chanceinc random 0.25 *0
@@ -544,7 +544,7 @@ basechance 1
 #name "Lizard Death Spells"
 #spell "C'tissian Reanimation"
 #spell "Release Sheut"
-#spell "Rite of the Three Gates"
+#spell "Rite of Three Gates"
 #spell "Create Revenant"
 #spell "Disease Warding"
 #spell "Sauromancy"
@@ -957,7 +957,7 @@ basechance 1
 #spell "Enslavement"
 #spell "Power of the Void"
 #spell "Protection of the Void"
-#spell "Angels of Tindalos"
+#spell "Angles of Tindalos"
 #spell "Send Hound of Tindalos"
 #spell "The Stars are Right"
 #spell "Enter the Void"
@@ -1008,7 +1008,7 @@ basechance 1
 #name "halfmen carrion"
 #spell "Animate Deadwood"
 #spell "Raise Carrion Dragon"
-#spell "Gaia's Vengance"
+#spell "Gaia;s Vengeance"
 #spell "Carrion Wild"
 #basechance 0
 #chanceinc hasthemetheme black 1
@@ -1027,11 +1027,11 @@ basechance 1
 #spell "Protection of the Earth Mother"
 #spell "Hidden in Clouds"
 #spell "Summon Condor Scout"
-#spell "Summon Boiata"
+#spell "Summon Boitata"
 #spell "Amaru of the Peaks"
 #spell "Amaru of the Lowlands"
 #spell "Call Madremonte"
-#spell "Summon Black Amaru"
+#spell "Summon the Black Amaru"
 #basechance 0
 #chanceinc hasthemetheme dynastic 1
 #chanceinc nationtag dynastic 1

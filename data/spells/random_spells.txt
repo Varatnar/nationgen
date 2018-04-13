@@ -563,14 +563,14 @@
 
 #new
 #name "Ur nature spells"
-#spell "Servants of the Annuaki"
+#spell "Servants of the Annunaki"
 #spell "Incantation of Eridu"
 #spell "Sacred Hunters"
 #spell "Guardian of the Cedar Forest"
 #spell "Summon Urmalu"
 #spell "Summon Pride of Urmalu"
-#spell "Summon Urmalu Tree"
-#spell "Concecrate God-Statue"
+#spell "Summon Urmalu Tribe"
+#spell "Consecrate God-Statue"
 #spell "Awaken God-Statue"
 #basechance 0
 #chanceinc anymagic nature 1
