@@ -270,8 +270,8 @@
 --Aco spells
 #new
 #name "Arcosephale Earth spells"
-#spell "Creations of the Lykeoin"
-#spell "Defenders of the Lykeoin"
+#spell "Creations of the Lykeion"
+#spell "Defenders of the Lykeion"
 #spell "Men of bronze"
 #spell "Headless Men"
 #spell "Mechanical Icarids"
@@ -311,7 +311,6 @@
 
 #new
 #name "Arcosephale titan spells"
-#spell "The Wrath of the Titans"
 #spell "Titan of War and Wisdom"
 #spell "Titan of the Seas"
 #spell "Titan of the Underworld"
@@ -341,7 +340,7 @@
 #new
 #name "scry spells"
 #spell "Baleful Conjunction"
-#spell "Baleful Conjunction""
+#spell "Baneficent Conjunction""
 #spell "Cursed Omen"
 #spell "Guidance of the Gods"
 #spell "Cursed Luck"
@@ -432,7 +431,7 @@
 #end
 
 #new
-#name "Wolfpack"
+#name "Samhain"
 #spell "Samhain"
 #basechance 0.01
 #chanceinc anymagic not nature *0
@@ -443,7 +442,7 @@
 #new
 #name "Hydra spells"
 #spell "Hydra Brood"
-#spell "Hydra Hatchling"
+#spell "Hydra Hatching"
 #basechance 0.1
 #chanceinc anymagic nature 1
 #end
@@ -452,6 +451,7 @@
 #new
 #name "Obsidian Butterfly"
 #spell "The Obsidian Butterfly"
+#spell "Bind Tzitzimitl"
 #basechance 0
 #chanceinc nationtag occidental 1
 #chanceinc hasthemetheme occidental 1
@@ -461,7 +461,7 @@
 #name "sidhe nature rand"
 #spell "Summon Bramble Spirit"
 #spell "Summon Thistle Spirit"
-#spell "Cad Coddeu"
+#spell "Cad Goddeu"
 #spell "Summon Urisk"
 #spell "Send Puck"
 #spell "The Fair Folk"
@@ -519,8 +519,6 @@
 #spell "Blessing of Niefelheim"
 #spell "Weave Fate"
 #spell "Weave Destiny"
-#spell "Celestial Mantra"
-#spell "Access Acashic Records"
 #basechance 0.15
 #chanceinc nationtag nordic *2
 #chanceinc hasthemetheme nordic *2
@@ -596,7 +594,7 @@
 #name "pelagia spells"
 #spell "Teachings of Thaumas"
 #spell "Masters of the Sea"
-#spell "Curse of CHoking Brine"
+#spell "Curse of Choking Brine"
 #spell "Summon Tanagran Triton"
 #spell "Drown Battlefield"
 #basechance 0

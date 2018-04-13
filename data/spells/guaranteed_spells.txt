@@ -266,7 +266,7 @@
 #spell "Galdr against Blades"
 #spell "Hidden in Barrows"
 #spell "Summon Groa"
-#spell "Dishird Attacl"
+#spell "Dishird Attack"
 #spell "Endurance of Giants"
 #spell "Send Mara"
 #spell "Steal Vitality"
@@ -544,7 +544,6 @@ basechance 1
 #name "Lizard Death Spells"
 #spell "C'tissian Reanimation"
 #spell "Release Sheut"
-#spell "Rite of Three Gates"
 #spell "Create Revenant"
 #spell "Disease Warding"
 #spell "Sauromancy"
@@ -601,7 +600,7 @@ basechance 1
 #spell "Frozen Aura"
 #spell "Mysteries of the Deep"
 #spell "Coral Blessing"
-#spell "THe Shadow People"
+#spell "The Shadow People"
 #spell "Summon Akhlut"
 #spell "Send Kigatilik"
 #basechance 0
@@ -628,10 +627,8 @@ basechance 1
 #new
 #name "ME Boreal Blood Spells"
 #spell "Summon the Black Riders
-#spell "Curse of Vampirism"
 #spell "Malediction"
 #spell "Dark Hunger"
-#spell "Raise Ghoul Guardians"
 #spell "Bat Transformation"
 #spell "Curse Township"
 #spell "Curse of Hunger"
@@ -833,7 +830,7 @@ basechance 1
 #name "sidhe nature"
 #spell "Summon Bramble Spirit"
 #spell "Summon Thistle Spirit"
-#spell "Cad Coddeu"
+#spell "Cad Goddeu"
 #spell "Summon Urisk"
 #spell "Send Puck"
 #spell "The Fair Folk"
@@ -866,7 +863,7 @@ basechance 1
 #new
 #name "Formorian death"
 #spell "Call Morrigans"
-#spell "Robin Redcap"
+#spell "Robin Redcaps"
 #spell "Jenny Greenteeth"
 #spell "Call the Fianna"
 #spell "Hidden Knowledge"
@@ -893,7 +890,7 @@ basechance 1
 #spell "Call Unclean Spirits"
 #spell "Celestial Abominations"
 #spell "Return of the Nephilim"
-#spell "Strenghth of Blood"
+#spell "Strength of Blood"
 #spell "Hunger of the Rephaim"
 #spell "Banquet of the Melquarts"
 #basechance 0
@@ -959,7 +956,6 @@ basechance 1
 #spell "Protection of the Void"
 #spell "Angles of Tindalos"
 #spell "Send Hound of Tindalos"
-#spell "The Stars are Right"
 #spell "Enter the Void"
 #basechance 0
 #chanceinc anymagic astral 1
@@ -1008,7 +1004,7 @@ basechance 1
 #name "halfmen carrion"
 #spell "Animate Deadwood"
 #spell "Raise Carrion Dragon"
-#spell "Gaia;s Vengeance"
+#spell "Gaia's Vengeance"
 #spell "Carrion Wild"
 #basechance 0
 #chanceinc hasthemetheme black 1
