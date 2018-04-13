@@ -472,7 +472,8 @@
 #spell "Contact Nemedian"
 #basechance 0.05
 #chanceinc anymagic air *2
-#chanceinc primaryrace "Sidhe" or "Van" *10
+#chanceinc hasthemetheme fae *10
+#chanceinc nationtag fae *10
 #end
 
 
