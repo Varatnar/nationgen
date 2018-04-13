@@ -34,7 +34,6 @@
 #spell "Contact Ancestral Riders"
 #spell "Ancestral Host"
 #spell "Summon Ancestral Rider"
-#spell "Contact Ancestors"
 #spell "Consult Ancestors"
 #basechance 0
 #chanceinc nationtag oriental 1

@@ -340,7 +340,7 @@
 #new
 #name "scry spells"
 #spell "Baleful Conjunction"
-#spell "Baneficent Conjunction""
+#spell "Beneficent Conjunction"
 #spell "Cursed Omen"
 #spell "Guidance of the Gods"
 #spell "Cursed Luck"
