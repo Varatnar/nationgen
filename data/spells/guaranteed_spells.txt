@@ -649,7 +649,6 @@ basechance 1
 #new
 #name "Ashen summons"
 #spell "Wails of the Damned"
-#spell ""
 #basechance 0
 #chanceinc nationtag reanimation 1
 #chanceinc command undead 0.025
@@ -664,7 +663,6 @@ basechance 1
 #chanceinc nationtag boreal 1
 #chanceinc hasthemetheme boreal 1
 #chanceinc anyunitfilter not warriorculture *0
-#chanceinc hasfil
 #chanceinc anymagic not death *0
 #chanceinc spells "Maverni Nature" *0
 #end
@@ -941,8 +939,6 @@ basechance 1
 #spell "Storm Ride"
 #spell "Riders on the Storm"
 #spell "Lightning Storm"
-#spell ""
-#spell ""
 #basechance 0
 #chanceinc magewithpaths air water 1
 #chanceinc command #sailing 1
