@@ -241,6 +241,7 @@
 #name "Earth Communion"
 #spell "Reader of Earth"
 #spell "Supplicant of Earth"
+#basechance 0
 #chanceinc primaryrace "Pale One" 0.125
 #chanceinc anymagic not earth *0  
 #chanceinc diversity not 3 *8
@@ -253,6 +254,7 @@
 #name "Accelerated Breeding"
 #spell "Accelerated Breeding"
 #spell "Improved Accelerated Breeding"
+#basechance 0
 #chanceinc primaryrace "Foulspawn" 0.5
 #chanceinc magic not nature *0
 #chanceinc anymagic blood *0.25
@@ -363,7 +365,7 @@
 #spell "Blessings of the Numina"
 #spell "Protection of the Numina"
 #spell "Secrets of the Numina"
-Basechance 0
+#basechance 0
 #chanceinc magewithpaths fire holy 1
 #end
 

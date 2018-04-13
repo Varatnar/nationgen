@@ -28,7 +28,6 @@
 #name "TC ancestor spells"
 #spell "Call Ancestor"
 #spell "Wrath of the Ancestors"
----Magic enhanced
 #spell "Create Corpse-Immortal"
 #spell "King of Ghosts"
 #spell "Control Unruly Spirits"
@@ -54,7 +53,6 @@
 #spell "Heavenly Fires"
 #spell "Heavenly Rivers"
 #spell "Internal Alchemy"
----Magic enhanced
 #spell "Celestial Army"
 #spell "Petition Zhurong"
 #spell "Prepare Sacred Herbs"
@@ -275,7 +273,7 @@
 #basechance 0
 #chanceinc nationtag nordic 1
 #chanceinc hasthemetheme nordic 1
-#chanceinc spells "air van spells" *0
+#chanceinc spells "Air van spells" *0
 #chanceinc spells "Blood Van spells" *0
 #end
 
@@ -639,7 +637,6 @@ basechance 1
 #spell "Curse of Hunger"
 #basechance 0
 #chanceinc nationtag advanced 1
-#chanceinc hasthemetheme ghoul 1
 #chanceinc hasthemetheme blacksteel 0.5
 #chanceinc anymagic not death *0
 #chanceinc anymagic not blood *0.25
@@ -888,19 +885,6 @@ basechance 1
 --
 
 #new
-#name "Giants"
-#spell "Summon sons of Mim"
-#spell "The Well of Knowledge"
-#spell "Niefel Winter"
-#spell "Entomb in Ice"
-#basechance 0 
-#chanceinc race giant *50
-#chanceinc nationtag nordic 1
-#chanceinc hasthemetheme nordic 1
-#chanceinc race not giant *0
-#end
-
-#new
 #name "hinnom blood"
 #spell "Banquet of Flesh"
 #spell "Consume Strength"
@@ -941,7 +925,7 @@ basechance 1
 #spell "Lightning Storm"
 #basechance 0
 #chanceinc magewithpaths air water 1
-#chanceinc command #sailing 1
+#chanceinc command sailing 1
 #chanceinc nationtag fae *0
 #chanceinc hasthemetheme fae *0
 #end
