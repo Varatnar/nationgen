@@ -536,3 +536,90 @@ Basechance 0
 #chanceinc anymagic blood 1
 #chanceinc random 0.5 *0
 #end
+
+#new
+#name "Ur death spells"
+#spell "Summon Rabisu"
+#spell "Summon Edimmu"
+#spell "Guardian of the Underworld"
+#spell "Shroud of Fear"
+#basechance 0
+#chanceinc anymagic death 1
+#chanceinc random 0.3 *0
+#chanceinc nationtag occidental *0
+#chanceinc hasthemetheme occidental *0
+#chanceinc nationtag nordic 1
+#chanceinc hasthemetheme nordic 1
+#end
+
+#new
+#name "Ur nature spells"
+#spell "Servants of the Annuaki"
+#spell "Incantation of Eridu"
+#spell "Sacred Hunters"
+#spell "Guardian of the Cedar Forest"
+#spell "Summon Urmalu"
+#spell "Summon Pride of Urmalu"
+#spell "Summon Urmalu Tree"
+#spell "Concecrate God-Statue"
+#spell "Awaken God-Statue"
+#basechance 0
+#chanceinc anymagic nature 1
+#chanceinc nationtag occidental *0
+#chanceinc hasthemetheme occidental *0
+#chanceinc nationtag nordic *0
+#chanceinc hasthemetheme nordic *0
+#end
+
+#new
+#name "Shoggoth access"
+#spell "Create Shoggoth Servitor"
+#spell "Create Shoggoth Horde"
+#spell "Create Shoggoth Monstrosity"
+#basechance 0
+#chanceinc magewithpaths water astral 0.25
+#chanceinc primaryrace "Atlantian" *2
+#chanceinc primaryrace "Ichtyid" *2
+#chanceinc spells "pelagia spells" *0
+#end
+
+#new
+#name "pelagia spells"
+#spell "Teachings of Thaumas"
+#spell "Masters of the Sea"
+#spell "Curse of CHoking Brine"
+#spell "Summon Tanagran Triton"
+#spell "Drown Battlefield"
+#basechance 0
+#chanceinc anymagic water 0.1
+#chanceinc spells "shoggoth access" *0
+#chanceinc primaryrace "Atlantian" *2
+#chanceinc primaryrace "Ichtyid" *4
+#end
+
+#new
+#name "LA man spells"
+#spell "Lightning Strike"
+#spell "Arcane Shield"
+#basechance 0
+#chanceinc nationtag advanced 0.1
+#chanceinc hasthemetheme boreal 0.1
+#chanceinc magewithpaths earth air *5
+#end
+
+#new
+#name "The Knights of Avalon"
+#spell "Call Wandering Knight" 
+#spell "The Knights of Avalon"
+#chanceinc nationtag boreal 0.5
+#chanceinc anymagic nature 0.5
+#chanceinc random 0.25 *0
+#end
+
+#new
+#name "random undead"
+#spell "Unholy Resilience"
+#spell "Resilience of the Shadelands"
+#basechance 0
+#chanceinc command undead 0.25
+#end
