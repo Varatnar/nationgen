@@ -891,7 +891,7 @@ basechance 1
 #spell "Return of the Nephilim"
 #spell "Strength of Blood"
 #spell "Hunger of the Rephaim"
-#spell "Banquet of the Melquarts"
+#spell "Banquet of the Melqarts"
 #basechance 0
 #chanceinc primaryrace Avvite 1
 #chanceinc anymagic not blood *0
