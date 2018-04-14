@@ -908,7 +908,7 @@ basechance 1
 #spell "Teachings of Shamshiel"
 #spell "Teachings of Kokabel"
 #spell "Teachings of Arakiel"
-#spell "Chaos Serpent"
+#spell "The Chaos Serpent"
 #basechance 0
 #chanceinc primaryrace Avvite 1
 #end

@@ -355,7 +355,7 @@
 #new
 #name "Holy spells"
 #spell "Healing Hands"
-#spell "Faith Healing
+#spell "Faith Healing"
 #spell "Halt Demon"
 #spell "Divine Healing"
 #spell "Conversion"
@@ -417,7 +417,7 @@
 #new
 #name "Hades"
 #spell "The Guardian of Hades"
-#spell "The Gates of Death"
+#spell "Gates of Death"
 #basechance 0.01
 #chanceinc anymagic death 0.2
 #chanceinc command undead 0.025
