@@ -426,7 +426,7 @@ public class MagicPattern extends Filter {
 	}
 	
 	@Override
-	public <Entity> void handleOwnCommand(String str)
+	public void handleOwnCommand(String str)
 	{
 		List<String> args = Generic.parseArgs(str);
 		if(args.size() == 0)

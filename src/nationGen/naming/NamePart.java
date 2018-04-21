@@ -119,7 +119,7 @@ public class NamePart extends Filter {
 	}
 	
         @Override
-	public <Entity> void handleOwnCommand(String str)
+	public void handleOwnCommand(String str)
 	{
 
 		List<String> args = Generic.parseArgs(str);

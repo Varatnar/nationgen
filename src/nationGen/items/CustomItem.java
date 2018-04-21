@@ -41,7 +41,7 @@ public class CustomItem extends Item {
 	
 	
 	@Override
-	public <Entity> void handleOwnCommand(String str)
+	public void handleOwnCommand(String str)
 	{
 		List<String> args = Generic.parseArgs(str);
 		if(args.get(0).equals("#command") && args.size() > 1)

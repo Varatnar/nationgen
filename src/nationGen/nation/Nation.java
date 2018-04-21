@@ -193,22 +193,22 @@ public class Nation {
 		// Apply the nation and primary race theme secondary race effects
 		for(Theme t : races.get(0).themefilters)
 		{
-			for(String str : t.secondarynationeffects)
+			for(String str : t.secondaryNationEffects)
 			{
 				races.get(1).addOwnLine(str);
 			}
-			for(String str2 : t.bothnationeffects)
+			for(String str2 : t.bothNationEffects)
 			{
 				races.get(1).addOwnLine(str2);
 			}
 		}
 		for(Theme t : this.nationthemes)
 		{
-			for(String str : t.secondarynationeffects)
+			for(String str : t.secondaryNationEffects)
 			{
 				races.get(1).addOwnLine(str);
 			}
-			for(String str2 : t.bothnationeffects)
+			for(String str2 : t.bothNationEffects)
 			{
 				races.get(1).addOwnLine(str2);
 			}

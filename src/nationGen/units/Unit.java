@@ -1869,7 +1869,7 @@ public class Unit {
 
 		
 
-		for(String s : pose.renderorder.split(" "))
+		for(String s : pose.renderOrder.split(" "))
 		{
 
 					

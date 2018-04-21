@@ -30,7 +30,7 @@ public class Spritechecker {
 			List<Pose> pl = ng.poses.get(str);
 			for(Pose p : pl)
 			{
-				for(String slot : p.renderorder.split(" "))
+				for(String slot : p.renderOrder.split(" "))
 				{
 					if(p.getItems(slot) == null)
 						continue;
