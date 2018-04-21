@@ -876,12 +876,12 @@ public class RosterGenerator {
 		while(templates.size() > 0)
 		{
 			String lowestID = allArmor.get(0).id;
-			int lowestProt = nationGen.armordb.GetInteger("" + lowestID, "body");
+			int lowestProt = nationGen.armorDB.GetInteger("" + lowestID, "body");
 			for(Item armor : allArmor)
-				if(nationGen.armordb.GetInteger(armor.id, "body") < lowestProt)
+				if(nationGen.armorDB.GetInteger(armor.id, "body") < lowestProt)
 				{
 					lowestID = armor.id;	
-					lowestProt = nationGen.armordb.GetInteger("" + lowestID, "body");
+					lowestProt = nationGen.armorDB.GetInteger("" + lowestID, "body");
 				}
 			
 			List<Item> foobarArmor = new ArrayList<Item>();
@@ -897,7 +897,7 @@ public class RosterGenerator {
 
 			templates.removeAll(newlist);
 			finallist.add(sortByGcost(newlist));
-			//System.out.println("Removing all units with " + nationGen.armordb.GetValue(lowestID, "armorname") + ", #" + newlist.size() + ". " + templates.size() + " remain.");
+			//System.out.println("Removing all units with " + nationGen.armorDB.GetValue(lowestID, "armorname") + ", #" + newlist.size() + ". " + templates.size() + " remain.");
 		}
 
 		return finallist;
@@ -946,7 +946,7 @@ public class RosterGenerator {
 
 			templates.removeAll(newlist);
 			troops.add(newlist);
-			//System.out.println("Removing all units with " + nationGen.armordb.GetValue(lowestID, "armorname") + ", #" + newlist.size() + ". " + templates.size() + " remain.");
+			//System.out.println("Removing all units with " + nationGen.armorDB.GetValue(lowestID, "armorname") + ", #" + newlist.size() + ". " + templates.size() + " remain.");
 		}
 
 		

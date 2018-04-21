@@ -90,36 +90,36 @@ public class PriestNamer extends MageNamer {
 			List<String> args = Generic.parseArgs(tag);
 			if(args.get(0).equals("priestnames"))
 			{
-				names.addAll(n.nationGen.magenames.get(args.get(1)));
+				names.addAll(n.nationGen.mageNames.get(args.get(1)));
 			}
 			else if(args.get(0).equals("priestadjectives"))
 			{
-				adjectives.addAll(n.nationGen.magenames.get(args.get(1)));
+				adjectives.addAll(n.nationGen.mageNames.get(args.get(1)));
 			}
 			else if(args.get(0).equals("priestnouns"))
 			{
-				nouns.addAll(n.nationGen.magenames.get(args.get(1)));
+				nouns.addAll(n.nationGen.mageNames.get(args.get(1)));
 			}
 			else if(args.get(0).equals("tieredpriestnames"))
 			{
-				tieredmage.addAll(n.nationGen.magenames.get(args.get(1)));
+				tieredmage.addAll(n.nationGen.mageNames.get(args.get(1)));
 			}
 			else if(args.get(0).equals("priestrankedprefixes"))
 			{
-				rankedprefix.addAll(n.nationGen.magenames.get(args.get(1)));
+				rankedprefix.addAll(n.nationGen.mageNames.get(args.get(1)));
 			}
 		}
 		
 		if(names.size() == 0)
-			names = n.nationGen.magenames.get("defaultnames");
+			names = n.nationGen.mageNames.get("defaultnames");
 		if(adjectives.size() == 0)
-			adjectives = n.nationGen.magenames.get("defaultadjectives");
+			adjectives = n.nationGen.mageNames.get("defaultadjectives");
 		if(nouns.size() == 0)
-			nouns = n.nationGen.magenames.get("defaultnouns");
+			nouns = n.nationGen.mageNames.get("defaultnouns");
 		if(tieredmage.size() == 0)
-			tieredmage = n.nationGen.magenames.get("defaulttieredpriestnames");
+			tieredmage = n.nationGen.mageNames.get("defaulttieredpriestnames");
 		if(rankedprefix.size() == 0)
-			rankedprefix = n.nationGen.magenames.get("defaultprefixranks");
+			rankedprefix = n.nationGen.mageNames.get("defaultprefixranks");
 		
 	
 	}

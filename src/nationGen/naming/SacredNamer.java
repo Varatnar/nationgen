@@ -54,10 +54,10 @@ public class SacredNamer {
 	public void nameSacreds(Nation n)
 	{
 		chandler = new ChanceIncHandler(n);
-		parts = n.nationGen.miscnames.get("defaultparts");
-		bases = n.nationGen.miscnames.get("defaultbases");
-		combases = n.nationGen.miscnames.get("defaultcommandernames");
-		eliteparts = n.nationGen.miscnames.get("defaulteliteparts");
+		parts = n.nationGen.miscNames.get("defaultparts");
+		bases = n.nationGen.miscNames.get("defaultbases");
+		combases = n.nationGen.miscNames.get("defaultcommandernames");
+		eliteparts = n.nationGen.miscNames.get("defaulteliteparts");
 
 		this.r = new Random(n.random.nextInt());
 		

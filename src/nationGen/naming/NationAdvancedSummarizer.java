@@ -24,13 +24,13 @@ import com.elmokki.Generic;
 public class NationAdvancedSummarizer {
 	
 	
-	Dom3DB weapondb;
-	Dom3DB armordb;
+	private Dom3DB weaponDB;
+	private Dom3DB armorDB;
 	
 	public NationAdvancedSummarizer(Dom3DB armor, Dom3DB weapon)
 	{
-		this.armordb = armor;
-		this.weapondb = weapon;
+		this.armorDB = armor;
+		this.weaponDB = weapon;
 	}
 	
 
@@ -325,7 +325,7 @@ public class NationAdvancedSummarizer {
 				continue;
 			
 			if(!u.getSlot(str).armor && !u.getSlot(str).id.equals("-1"))
-				line = line + weapondb.GetValue(u.getSlot(str).id, "weapon_name") + ", ";
+				line = line + weaponDB.GetValue(u.getSlot(str).id, "weapon_name") + ", ";
 
 		}
 		
@@ -334,7 +334,7 @@ public class NationAdvancedSummarizer {
 			if(u.getSlot(str) == null)
 				continue;
 			if(u.getSlot(str).armor && !u.getSlot(str).id.equals("-1"))
-				line = line + armordb.GetValue(u.getSlot(str).id, "armorname") + ", ";
+				line = line + armorDB.GetValue(u.getSlot(str).id, "armorname") + ", ";
 		}
 		
 		

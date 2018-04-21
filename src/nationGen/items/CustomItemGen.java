@@ -37,9 +37,9 @@ public class CustomItemGen {
 		boolean ranged = false;
 		boolean lowshots = false;
 		
-		if(n.nationGen.weapondb.GetInteger(olditem.id, "rng") != 0)
+		if(n.nationGen.weaponDB.GetInteger(olditem.id, "rng") != 0)
 			ranged = true;
-		if(n.nationGen.weapondb.GetInteger(olditem.id, "shots", 100) < 4)
+		if(n.nationGen.weaponDB.GetInteger(olditem.id, "shots", 100) < 4)
 			lowshots = true;
 			
 
@@ -121,7 +121,7 @@ public class CustomItemGen {
 				if(!mitem.effect.equals("-1"))
 					i.values.put("secondaryeffect", mitem.effect);
 				
-				String name = n.nationGen.weapondb.GetValue(olditem.id, "weapon_name");
+				String name = n.nationGen.weaponDB.GetValue(olditem.id, "weapon_name");
 				List<String> prefixes = new ArrayList<String>();
 				List<String> suffixes = new ArrayList<String>();
 				
@@ -267,7 +267,7 @@ public class CustomItemGen {
 			
 			
 		}
-		String name = n.nationGen.weapondb.GetValue(olditem.id, "weapon_name");
+		String name = n.nationGen.weaponDB.GetValue(olditem.id, "weapon_name");
 		
 
 		if(!magic && (i.magicItem == null || !named))
@@ -283,8 +283,8 @@ public class CustomItemGen {
 			i.tags.addAll(i.magicItem.tags);
 		
 		n.customitems.add(i);
-		n.nationGen.customitems.add(i);
-		n.nationGen.weapondb.addToMap(i.id, i.getHashMap());
+		n.nationGen.customItems.add(i);
+		n.nationGen.weaponDB.addToMap(i.id, i.getHashMap());
 		
 
 		return i;
@@ -315,13 +315,13 @@ public class CustomItemGen {
 		newitem.renderslot = item.renderslot;
 		newitem.renderprio = item.renderprio;
 		newitem.armor = item.armor;
-		newitem.olditem = item;
+		newitem.oldItem = item;
 		
 		Dom3DB db = null;
 		if(item.armor)
-			db = n.nationGen.armordb;
+			db = n.nationGen.armorDB;
 		else
-			db = n.nationGen.weapondb;
+			db = n.nationGen.weaponDB;
 		
 		
 		

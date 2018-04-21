@@ -178,7 +178,7 @@ public class PDSelector {
 		{
 			if(u.getSlot("bonusweapon") != null)
 			{
-				if(n.nationGen.weapondb.GetInteger(u.getSlot("bonusweapon").id, "rng", 0) > 15)
+				if(n.nationGen.weaponDB.GetInteger(u.getSlot("bonusweapon").id, "rng", 0) > 15)
 				{
 					units.add(u);
 				}
@@ -192,11 +192,11 @@ public class PDSelector {
 				{
 	
 							
-					if(u.getSlot("bonusweapon") != null && n.nationGen.weapondb.GetInteger(u.getSlot("bonusweapon").id, "rng", 0) > 15)
+					if(u.getSlot("bonusweapon") != null && n.nationGen.weaponDB.GetInteger(u.getSlot("bonusweapon").id, "rng", 0) > 15)
 					{
 						units.add(u);
 					}
-					if(u.getSlot("weapon") != null && n.nationGen.weapondb.GetInteger(u.getSlot("weapon").id, "rng", 0) > 15)
+					if(u.getSlot("weapon") != null && n.nationGen.weaponDB.GetInteger(u.getSlot("weapon").id, "rng", 0) > 15)
 					{
 						units.add(u);
 					}		
@@ -220,7 +220,7 @@ public class PDSelector {
 			{
 				if(u.getSlot("bonusweapon") != null)
 				{
-					if(n.nationGen.weapondb.GetInteger(u.getSlot("bonusweapon").id, "rng", 0) != 0)
+					if(n.nationGen.weaponDB.GetInteger(u.getSlot("bonusweapon").id, "rng", 0) != 0)
 					{
 						units.add(u);
 					}

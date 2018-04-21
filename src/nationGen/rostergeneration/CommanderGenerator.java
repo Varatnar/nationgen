@@ -1011,7 +1011,7 @@ public class CommanderGenerator extends TroopGenerator {
 		
 		
 		if(u.getSlot(slot).armor)
-			helmetprot = nationGen.armordb.GetInteger(u.getSlot(slot).id, "prot");
+			helmetprot = nationGen.armorDB.GetInteger(u.getSlot(slot).id, "prot");
 			
 		// Try to get elite version
 		Item item = u.getSlot(slot);
@@ -1053,10 +1053,10 @@ public class CommanderGenerator extends TroopGenerator {
 		// Try to get an elite armor of some suitable sort
 		if(u.getSlot(slot).armor && helmet == null && !slot.equals("offhand"))
 		{
-				helmet = chandler.getRandom(getSuitableCommanderItems(u, slot).filterProt(nationGen.armordb, helmetprot, helmetprot));
+				helmet = chandler.getRandom(getSuitableCommanderItems(u, slot).filterProt(nationGen.armorDB, helmetprot, helmetprot));
 			
 				if(helmet == null)
-					helmet = chandler.getRandom(getSuitableCommanderItems(u, slot).filterProt(nationGen.armordb, helmetprot - 2, helmetprot + 8));
+					helmet = chandler.getRandom(getSuitableCommanderItems(u, slot).filterProt(nationGen.armorDB, helmetprot - 2, helmetprot + 8));
 		
 		}
 

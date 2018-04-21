@@ -406,7 +406,7 @@ public class Unit {
 		if(getSlot("weapon") == null)
 			return false;
 		
-		Dom3DB weapondb = nationGen.weapondb;
+		Dom3DB weapondb = nationGen.weaponDB;
 		if(weapondb.GetValue(getSlot("weapon").id, "rng", "0").equals("0"))
 			return true;
 		
@@ -712,8 +712,8 @@ public class Unit {
 		int ressize = -1;
 		int extrares = 0;
 		
-		Dom3DB weapondb = nationGen.weapondb;
-		Dom3DB armordb = nationGen.armordb;
+		Dom3DB weapondb = nationGen.weaponDB;
+		Dom3DB armordb = nationGen.armorDB;
 		
 
 		for(Command c : commands)
@@ -921,11 +921,11 @@ public class Unit {
 
 		int enc = 0;
 		if(getSlot("armor") != null)
-			enc += nationGen.armordb.GetInteger(getSlot("armor").id, "enc");
+			enc += nationGen.armorDB.GetInteger(getSlot("armor").id, "enc");
 		if(getSlot("offhand") != null && getSlot("offhand").armor)
-			enc += nationGen.armordb.GetInteger(getSlot("offhand").id, "enc");
+			enc += nationGen.armorDB.GetInteger(getSlot("offhand").id, "enc");
 		if(getSlot("helmet") != null)
-			enc += nationGen.armordb.GetInteger(getSlot("helmet").id, "enc");
+			enc += nationGen.armorDB.GetInteger(getSlot("helmet").id, "enc");
 		
 		if(enc <= treshold && Generic.containsTag(tags, "lowenccommand"))
 		{
@@ -1069,9 +1069,9 @@ public class Unit {
 			int len = 0;
 			
 			if(this.getSlot("weapon") != null)
-				len = len + this.nationGen.weapondb.GetInteger(this.getSlot("weapon").id, "lgt");
+				len = len + this.nationGen.weaponDB.GetInteger(this.getSlot("weapon").id, "lgt");
 			
-			len = len + this.nationGen.weapondb.GetInteger(this.getSlot("offhand").id, "lgt");
+			len = len + this.nationGen.weaponDB.GetInteger(this.getSlot("offhand").id, "lgt");
 			
 			this.commands.add(new Command("#ambidextrous", "+" + len));
 
@@ -1084,9 +1084,9 @@ public class Unit {
 		
 		// Fist for things without proper weapons
 		if(!Generic.containsTag(pose.tags, "no_free_fist") && !copystats && getClass() != ShapeChangeUnit.class)
-			if(this.getSlot("weapon") == null || this.getSlot("weapon").id.equals("-1") || nationGen.weapondb.GetInteger(getSlot("weapon").id, "rng") != 0)
+			if(this.getSlot("weapon") == null || this.getSlot("weapon").id.equals("-1") || nationGen.weaponDB.GetInteger(getSlot("weapon").id, "rng") != 0)
 			{
-				if(this.getSlot("bonusweapon") == null || this.getSlot("bonusweapon").id.equals("-1") || nationGen.weapondb.GetInteger(getSlot("bonusweapon").id, "rng") != 0)
+				if(this.getSlot("bonusweapon") == null || this.getSlot("bonusweapon").id.equals("-1") || nationGen.weaponDB.GetInteger(getSlot("bonusweapon").id, "rng") != 0)
 				{
 
 					this.commands.add(new Command("#weapon", "92 --- Fist given to units that could otherwise only kick."));
@@ -1499,8 +1499,8 @@ public class Unit {
 		if(i == null || Integer.parseInt(i.id) < 1)
 			return;
 		
-		Dom3DB armordb = nationGen.armordb;
-		Dom3DB weapondb = nationGen.weapondb;
+		Dom3DB armordb = nationGen.armorDB;
+		Dom3DB weapondb = nationGen.weaponDB;
 		
 		if(i.armor)
 			tw.println("#armor " + i.id + " --- " + armordb.GetValue(i.id, "armorname") + " / " + i.name);
@@ -1547,7 +1547,7 @@ public class Unit {
 			}
 		}
 	
-		Dom3DB armordb = nationGen.armordb;
+		Dom3DB armordb = nationGen.armorDB;
 		
 		for(String slot : slotmap.keySet())
 		{
@@ -1593,7 +1593,7 @@ public class Unit {
 			}
 		}
 	
-		Dom3DB armordb = nationGen.armordb;
+		Dom3DB armordb = nationGen.armorDB;
 		
 		
 		for(String slot : slotmap.keySet())

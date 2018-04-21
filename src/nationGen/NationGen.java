@@ -1,8 +1,6 @@
 package nationGen;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
@@ -24,7 +22,6 @@ import java.util.Scanner;
 import com.elmokki.Dom3DB;
 import com.elmokki.Drawing;
 import com.elmokki.Generic;
-
 import nationGen.entities.Entity;
 import nationGen.entities.Filter;
 import nationGen.entities.Flag;
@@ -40,8 +37,8 @@ import nationGen.misc.Command;
 import nationGen.misc.PreviewGenerator;
 import nationGen.misc.ResourceStorage;
 import nationGen.misc.Site;
-import nationGen.naming.NamePart;
 import nationGen.naming.NameGenerator;
+import nationGen.naming.NamePart;
 import nationGen.naming.NamingHandler;
 import nationGen.naming.NationAdvancedSummarizer;
 import nationGen.nation.Nation;
@@ -51,9 +48,7 @@ import nationGen.units.ShapeShift;
 import nationGen.units.Unit;
 
 
-
-public class NationGen 
-{
+public class NationGen {
     public static String version = "0.7.0-RC4";
     public static String date = "11th of April 2018";
 
@@ -62,11 +57,11 @@ public class NationGen
     public ResourceStorage<MagicPattern> patterns = new ResourceStorage<>(MagicPattern.class, this);
     public ResourceStorage<Pose> poses = new ResourceStorage<>(Pose.class, this);
     public ResourceStorage<Filter> filters = new ResourceStorage<>(Filter.class, this);
-    public ResourceStorage<NamePart> magenames = new ResourceStorage<>(NamePart.class, this);
-    public ResourceStorage<Filter> miscdef = new ResourceStorage<>(Filter.class, this);
-    public ResourceStorage<Flag> flagparts = new ResourceStorage<>(Flag.class, this);
-    public ResourceStorage<MagicItem> magicitems = new ResourceStorage<>(MagicItem.class, this);
-    public ResourceStorage<NamePart> miscnames = new ResourceStorage<>(NamePart.class, this);
+    public ResourceStorage<NamePart> mageNames = new ResourceStorage<>(NamePart.class, this);
+    public ResourceStorage<Filter> miscDef = new ResourceStorage<>(Filter.class, this);
+    public ResourceStorage<Flag> flagParts = new ResourceStorage<>(Flag.class, this);
+    public ResourceStorage<MagicItem> magicItems = new ResourceStorage<>(MagicItem.class, this);
+    public ResourceStorage<NamePart> miscNames = new ResourceStorage<>(NamePart.class, this);
     public ResourceStorage<Filter> templates = new ResourceStorage<>(Filter.class, this);
     public ResourceStorage<Filter> descriptions = new ResourceStorage<>(Filter.class, this);
     public ResourceStorage<ShapeShift> monsters = new ResourceStorage<>(ShapeShift.class, this);
@@ -77,27 +72,27 @@ public class NationGen
     public List<String> secondShapeNonMountCommands = new ArrayList<>();
     public List<String> secondShapeRacePoseCommands = new ArrayList<>();
 
-    public Dom3DB weapondb;
-    public Dom3DB armordb;
+    public Dom3DB weaponDB;
+    public Dom3DB armorDB;
     public Dom3DB units;
     public Dom3DB sites;
     public Dom3DB nations;
 
     public Settings settings;
-    public List<CustomItem> customitems = new ArrayList<>();
-    public List<Filter> customspells = new ArrayList<>();
-    public List<ShapeShift> secondshapes = new ArrayList<>();
+    public List<CustomItem> customItems = new ArrayList<>();
+    private List<Filter> customSpells = new ArrayList<>();
+    private List<ShapeShift> secondShapes = new ArrayList<>();
     public List<Race> races = new ArrayList<>();
-    public IdHandler idHandler;
+    private IdHandler idHandler;
 
     public List<ShapeChangeUnit> forms = new ArrayList<>();
-    public List<CustomItem> chosenCustomitems = new ArrayList<>();
-    public List<CustomItem> pickedCustomitems = new ArrayList<>();
-    public List<Spell> spellsToWrite = new ArrayList<>();
-    public List<Spell> freeSpells = new ArrayList<>();
+    private List<CustomItem> chosenCustomItems = new ArrayList<>();
+    //todo: unused variable, keeping but commented
+//    private List<CustomItem> pickedCustomitems = new ArrayList<>();
+    private List<Spell> spellsToWrite = new ArrayList<>();
+    private List<Spell> freeSpells = new ArrayList<>();
 
-    public NationGen() throws IOException
-    {
+    public NationGen() {
         //System.out.println("Dominions 4 NationGen version " + version + " (" + date + ")");
         //System.out.println("------------------------------------------------------------------");
 
@@ -105,85 +100,83 @@ public class NationGen
         settings = new Settings();
         System.out.println("done!");
 
-        try 
-        {
+
+        // Init bloc, todo: confirm comment please
+        try {
             System.out.print("Loading Larzm42's Dom5 Mod Inspector database... ");
             loadDom3DB();
             System.out.println("done!");
             System.out.print("Loading definitions... ");
-            customitems.addAll(Item.readFile(this, "./data/items/customitems.txt", CustomItem.class));
-            customspells.addAll(Item.readFile(this, "./data/spells/custom_spells.txt", Filter.class));
+            customItems.addAll(Item.readFile(this, "./data/items/customItems.txt", CustomItem.class));
+            customSpells.addAll(Item.readFile(this, "./data/spells/custom_spells.txt", Filter.class));
             patterns.load("./data/magic/magicpatterns.txt");
             poses.load("./data/poses/poses.txt");
             filters.load("./data/filters/filters.txt");
-            magenames.load("./data/names/magenames/magenames.txt");
-            miscnames.load("./data/names/naming.txt");
+            mageNames.load("./data/names/mageNames/mageNames.txt");
+            miscNames.load("./data/names/naming.txt");
             templates.load("./data/templates/templates.txt");
             descriptions.load("./data/descriptions/descriptions.txt");
             themes.load("./data/themes/themes.txt");
             spells.load("./data/spells/spells.txt");
             monsters.load("./data/monsters/monsters.txt");
             loadRaces("./data/races/races.txt");
-            secondshapes = Entity.readFile(this, "./data/shapes/secondshapes.txt", ShapeShift.class);
-            miscdef.load("./data/misc/miscdef.txt");
-            flagparts.load("./data/flags/flagdef.txt");
-            magicitems.load("./data/items/magicweapons.txt");
+            secondShapes = Entity.readFile(this, "./data/shapes/secondShapes.txt", ShapeShift.class);
+            miscDef.load("./data/misc/miscDef.txt");
+            flagParts.load("./data/flags/flagdef.txt");
+            magicItems.load("./data/items/magicweapons.txt");
             loadSecondShapeInheritance("/data/shapes/secondshapeinheritance.txt");
 
             System.out.println("done!");
-        } 
-        catch (Exception e) 
-        {
+        } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Error loading file " + e.getMessage());
         }
 
-        this.customitems.forEach((CustomItem ci) -> 
+        this.customItems.forEach((CustomItem customItem) ->
         {
-            if (ci.armor) 
-            {
-                NationGen.this.armordb.addToMap(ci.name, ci.getHashMap());
-            } 
-            else 
-            {
-                NationGen.this.weapondb.addToMap(ci.name, ci.getHashMap());
+            if (customItem.armor) {
+                NationGen.this.armorDB.addToMap(customItem.name, customItem.getHashMap());
+            } else {
+                NationGen.this.weaponDB.addToMap(customItem.name, customItem.getHashMap());
             }
         });
         System.gc();
         //this.writeDebugInfo();
     }
-	
+
     public int seed = 0;
     public String modname = "";
-    public boolean manyseeds = false;
+    private boolean manySeeds = false;
 
-    public void generate(int amount) throws IOException
-    {
+    public void generate(int amount) {
         Random random = new Random();
         generate(amount, random.nextInt(), null);
     }
-    
-    public void generate(int amount, int seed) throws IOException
-    {
+
+    public void generate(int amount, int seed) {
         generate(amount, seed, null);
     }
-    
-    public void generate(List<Integer> seeds) throws IOException
-    {
+
+    public void generate(List<Integer> seeds) {
         Random random = new Random();
         generate(1, random.nextInt(), seeds);
     }
-	
-    private void generate(int amount, int seed, List<Integer> seeds) throws IOException
-    {
+
+    /**
+     * Generate a number of random nation given some parameters
+     *
+     * @param amount Number of nation to generate
+     * @param seed   Main mod seed
+     * @param seeds  List of potential seed for nations
+     */
+    private void generate(int amount, int seed, List<Integer> seeds) {
         this.seed = seed;
-        
+
         Random random = new Random(seed);
 
         // If there's a list of seeds.
-        if(seeds != null && seeds.size() > 0)
-        {	
-            manyseeds = true;
+        if (seeds != null && seeds.size() > 0) {
+            manySeeds = true;
             amount = seeds.size();
             random = new Random(0);
         }
@@ -192,16 +185,12 @@ public class NationGen
         idHandler = new IdHandler();
         idHandler.loadFile("forbidden_ids.txt");
 
-        if(!manyseeds)
-        {
+        if (!manySeeds) {
             System.out.println("Generating " + amount + " nations with seed " + seed + ".");
-        }
-        else
-        {
+        } else {
             System.out.println("Generating " + amount + " nations with predefined seeds.");
 
-            if(restrictions.size() > 0)
-            {
+            if (restrictions.size() > 0) {
                 restrictions.clear();
                 System.out.println("Ignoring nation restrictions due to predefined seeds.");
             }
@@ -209,113 +198,94 @@ public class NationGen
 
         System.out.println("Generating nations...");
         List<Nation> generatedNations = new ArrayList<>();
-        Nation newnation = null;
-        int newseed = 0;
+        Nation newNation;
+        int newSeed;
 
         int count = 0;
-        int failedcount = 0;
-        int totalfailed = 0;
-        
-        while(generatedNations.size() < amount)
-        {
+        int failedCount = 0;
+        int totalFailed = 0;
+
+        while (generatedNations.size() < amount) {
             count++;
-            if(!manyseeds)
-            {
-                newseed = random.nextInt();
-            }
-            else
-            {
-                newseed = seeds.get(generatedNations.size());
+            if (!manySeeds) {
+                newSeed = random.nextInt();
+            } else {
+                newSeed = seeds.get(generatedNations.size());
             }
 
-            System.out.print("- Generating nation " + (generatedNations.size() + 1) + "/" + amount + " (seed " + newseed);
-            
-            if(settings.get("debug") == 1.0)
-            {
+            System.out.print("- Generating nation " + (generatedNations.size() + 1) + "/" + amount + " (seed " + newSeed);
+
+            if (settings.get("debug") == 1.0) {
                 System.out.print(" / " + ZonedDateTime.now().toLocalTime().truncatedTo(ChronoUnit.SECONDS));
             }
 
             System.out.print(")... ");
 
-            newnation = new Nation(this, newseed, count, restrictions);
-            
-            if(!newnation.passed)
-            {
-                ++failedcount;
-                System.out.println("try "+ String.valueOf(failedcount) + ", FAILED RESTRICTION "  + newnation.restrictionFailed);
+            newNation = new Nation(this, newSeed, count, restrictions);
+
+            if (!newNation.passed) {
+                ++failedCount;
+                System.out.println("try " + String.valueOf(failedCount) + ", FAILED RESTRICTION " + newNation.restrictionFailed);
             }
 
-            if(newnation.passed)
-            {
-                totalfailed += failedcount;
-                failedcount = 0;
+            if (newNation.passed) {
+                totalFailed += failedCount;
+                failedCount = 0;
                 System.out.println("Done!");
-            }
-            else
-            {
+            } else {
                 continue;
             }
 
             // Handle loose ends
-            newnation.nationid = idHandler.nextNationId();
-            this.polishNation(newnation);
+            newNation.nationid = idHandler.nextNationId();
+            this.polishNation(newNation);
 
-            newnation.name = "Nation " + count;
+            newNation.name = "Nation " + count;
 
             System.gc();
 
-            generatedNations.add(newnation);
+            generatedNations.add(newNation);
         }
 
-        if(restrictions.size() > 0)
-        {
-            System.out.println("Total nations that did not pass restrictions: " + String.valueOf(totalfailed));
+        if (restrictions.size() > 0) {
+            System.out.println("Total nations that did not pass restrictions: " + String.valueOf(totalFailed));
         }
 
         System.out.print("Giving ids");
-        for(Nation n : generatedNations)
-        {
+        for (Nation n : generatedNations) {
             // units
-            for(List<Unit> ul : n.unitlists.values())
-            {
-                for(Unit u : ul)
-                {
-                    if(!u.invariantMonster)
-                    {
-                            u.id = idHandler.nextUnitId();
+            for (List<Unit> ul : n.unitlists.values()) {
+                for (Unit u : ul) {
+                    if (!u.invariantMonster) {
+                        u.id = idHandler.nextUnitId();
                     }
                     // Else the monster's ID was set in MonsterGen
-                }	
+                }
             }
 
-            for(List<Unit> ul : n.comlists.values())
-            {
-                for(Unit u : ul)
-                {
+            for (List<Unit> ul : n.comlists.values()) {
+                for (Unit u : ul) {
                     u.id = idHandler.nextUnitId();
-                }	
+                }
             }
-                
-            for(Unit u : n.heroes)
-            {
+
+            for (Unit u : n.heroes) {
                 u.id = idHandler.nextUnitId();
             }
 
             // sites
-            for(Site s : n.sites)
-            {
-                    s.id = idHandler.nextSiteId();
+            for (Site s : n.sites) {
+                s.id = idHandler.nextSiteId();
             }
-            System.out.print(".");		
+            System.out.print(".");
         }
-        
+
         System.out.println(" Done!");
         System.out.print("Naming things");
 
         NameGenerator nGen = new NameGenerator(this);
         NamingHandler nHandler = new NamingHandler(this);
-        for(Nation n : generatedNations)
-        {
+        for (Nation n : generatedNations) {
             n.name = nGen.generateNationName(n.races.get(0), n);
             n.nationalitysuffix = nGen.getNationalitySuffix(n, n.name);
 
@@ -324,11 +294,11 @@ public class NationGen
             nHandler.nameTroops(n);
 
             // sites
-            for(Site s : n.sites)
-                    s.name = nGen.getSiteName(n.random, s.getPath(), s.getSecondaryPath());
+            for (Site s : n.sites)
+                s.name = nGen.getSiteName(n.random, s.getPath(), s.getSecondaryPath());
 
 
-            // mages 
+            // mages
             nHandler.nameMages(n);
 
             // priests
@@ -346,18 +316,14 @@ public class NationGen
             // Summaries
             n.summary.update();
 
-            System.out.print(".");		
+            System.out.print(".");
         }
 
         // Get mod name if not custom
-        if(modname.equals(""))
-        {
-            if(generatedNations.size() > 1)
-            {
+        if (modname.equals("")) {
+            if (generatedNations.size() > 1) {
                 modname = nGen.getSiteName(generatedNations.get(0).random, generatedNations.get(0).random.nextInt(8), generatedNations.get(0).random.nextInt(8));
-            }
-            else
-            {
+            } else {
                 modname = generatedNations.get(0).name;
             }
         }
@@ -365,12 +331,9 @@ public class NationGen
         System.out.println(" Done!");
 
         String filename = modname.replaceAll(" ", "_").toLowerCase();
-        try 
-        {
+        try {
             this.write(generatedNations, filename);
-        } 
-        catch (IOException e) 
-        {
+        } catch (IOException e) {
             System.out.println("Error writing mod: " + e.getMessage());
         }
 
@@ -383,45 +346,35 @@ public class NationGen
     /**
      * Loads data from Dom3DB
      */
-    private void loadDom3DB() throws Exception
-    {
-            units = new Dom3DB("units.csv");
-            armordb = new Dom3DB("armor.csv");
-            weapondb = new Dom3DB("weapon.csv");
-            sites = new Dom3DB("sites.csv");
-            nations = new Dom3DB("nations.csv");
+    private void loadDom3DB() throws Exception {
+        units = new Dom3DB("units.csv");
+        armorDB = new Dom3DB("armor.csv");
+        weaponDB = new Dom3DB("weapon.csv");
+        sites = new Dom3DB("sites.csv");
+        nations = new Dom3DB("nations.csv");
     }
-	
+
     /**
      * Handles spells
-     * @param spells
-     * @param n
      */
-    public void handleSpells(List<Filter> spells, Nation n)
-    {
-        int id = n.nationid;
+    private void handleSpells(Nation nation) {
+        int id = nation.nationid;
 
-        for(String s : n.getSpells())
-        {
+        for (String s : nation.getSpells()) {
             Spell spell = null;
 
             // check for existing free spell
-            for(Spell sp : this.freeSpells)
-            {
-                if(sp.name.equals(s))
-                {
+            for (Spell sp : this.freeSpells) {
+                if (sp.name.equals(s)) {
                     spell = sp;
                 }
             }
             // create a new spell
 
             // check for custom spells first
-            if(spell == null)
-            {
-                for(Filter sf : this.customspells)
-                {
-                    if(sf.name.equals(s))
-                    {
+            if (spell == null) {
+                for (Filter sf : this.customSpells) {
+                    if (sf.name.equals(s)) {
                         spell = new Spell(this);
                         spell.name = s;
                         spell.commands.addAll(sf.commands);
@@ -430,8 +383,7 @@ public class NationGen
                 }
             }
             // copy existing spell
-            if(spell == null)
-            {
+            if (spell == null) {
                 spell = new Spell(this);
                 spell.name = s;
                 spell.commands.add(new Command("#copyspell", "\"" + s + "\""));
@@ -441,108 +393,108 @@ public class NationGen
             spell.nationids.add(id);
 
             // Handle existence in the list of spells with free space
-            if(!this.freeSpells.contains(spell))
-            {
+            if (!this.freeSpells.contains(spell)) {
                 this.freeSpells.add(spell);
             }
 
-            if(spell.nationids.size() >= settings.get("maxrestrictedperspell"))
-            {
+            if (spell.nationids.size() >= settings.get("maxrestrictedperspell")) {
                 this.freeSpells.remove(spell);
             }
-            
+
             // Add to spells to write
-            if(!this.spellsToWrite.contains(spell))
-            {
+            if (!this.spellsToWrite.contains(spell)) {
                 this.spellsToWrite.add(spell);
             }
         }
     }
 
-    private void loadRaces(String file) throws IOException
-    {
-        FileInputStream fstream = new FileInputStream(file);
-        DataInputStream in = new DataInputStream(fstream);
-        BufferedReader br = new BufferedReader(new InputStreamReader(in));
+    /**
+     * Load races from a file and store them in {@link #races}
+     *
+     * @param file File to load races from
+     * @throws IOException If file could not be accessed
+     */
+    @SuppressWarnings("SameParameterValue")
+    private void loadRaces(String file) throws IOException {
 
-        String strLine;
+        try (FileInputStream fileInputStream = new FileInputStream(file);
+             DataInputStream in = new DataInputStream(fileInputStream);
+             BufferedReader br = new BufferedReader(new InputStreamReader(in))) {
 
-        while ((strLine = br.readLine()) != null)   
-        {
-            List<String> args = Generic.parseArgs(strLine);
-            if(args.isEmpty())
-            {
-                continue;
-            }
+            String strLine;
 
-            if(args.get(0).equals("#load"))
-            {
-                List<Race> items = new ArrayList<>();
-                items.addAll(Item.readFile(this, args.get(1), Race.class));
-                races.addAll(items);
+            while ((strLine = br.readLine()) != null) {
+                List<String> args = Generic.parseArgs(strLine);
+                if (args.isEmpty()) {
+                    continue;
+                }
+
+                if (args.get(0).equals("#load")) {
+                    List<Race> items = new ArrayList<>(Item.readFile(this, args.get(1), Race.class));
+                    races.addAll(items);
+                }
             }
         }
-        in.close();
+
     }
-	
-    public void writeDebugInfo()
-    { 
+
+    /**
+     * Debug method
+     */
+    @SuppressWarnings("unused")
+    public void writeDebugInfo() {
         double total = 0;
-        for(Race r : races)
-        {
-            if(!r.tags.contains("secondary"))
-            {
+        for (Race r : races) {
+            if (!r.tags.contains("secondary")) {
                 total += r.basechance;
             }
         }
 
-        for(Race r : races)
-        {
-            if(!r.tags.contains("secondary"))
-            {
+        for (Race r : races) {
+            if (!r.tags.contains("secondary")) {
                 System.out.println(r.name + ": " + (r.basechance / total));
             }
         }
     }
 
-    private void writeDescriptions(PrintWriter tw, List<Nation> nations, String modname) throws IOException
-    {
-        NationAdvancedSummarizer nDesc = new NationAdvancedSummarizer(armordb, weapondb);
-        if(settings.get("advancedDescs") == 1.0)
-        {
+    private void writeDescriptions(List<Nation> nations, String modname) throws IOException {
+        NationAdvancedSummarizer nDesc = new NationAdvancedSummarizer(armorDB, weaponDB);
+        if (settings.get("advancedDescs") == 1.0) {
             nDesc.writeAdvancedDescriptionFile(nations, modname);
         }
-        if(settings.get("basicDescs") == 1.0)
-        {
+        if (settings.get("basicDescs") == 1.0) {
             nDesc.writeDescriptionFile(nations, modname);
-        }   
+        }
     }
-	
-    private void drawPreviews(List<Nation> nations, String dir) throws IOException
-    {
-        if(settings.get("drawPreview") == 1)
-        {
+
+    private void drawPreviews(List<Nation> nations, String dir) throws IOException {
+        if (settings.get("drawPreview") == 1) {
             System.out.print("Drawing previews");
             PreviewGenerator pGen = new PreviewGenerator();
-            for(Nation n : nations)
-            {
+            for (Nation n : nations) {
                 pGen.savePreview(n, "./mods/" + dir + "/preview_" + n.nationid + "_" + n.name.toLowerCase().replaceAll(" ", "_") + ".png");
                 System.out.print(".");
             }
             System.out.println(" Done!");
         }
     }
-	
-    public void write(List<Nation> nations, String modname) throws IOException
-    {
+
+    /**
+     * @param nations List of nation in mod
+     * @param modname Name to be given to the mod
+     * @throws IOException If an error occur when writing files
+     */
+    public void write(List<Nation> nations, String modname) throws IOException {
         String dir = "nationgen_" + modname.toLowerCase().replaceAll(" ", "_") + "/"; // nation.name.toLowerCase().replaceAll(" ", "_")
-        new File("./mods/" + dir).mkdir();
+        if (! new File("./mods/" + dir).mkdir()) {
+            throw new IOException("Could not create root mod directory !");
+        }
 
         FileWriter fstream = new FileWriter("./mods/nationgen_" + modname.toLowerCase().replaceAll(" ", "_") + ".dm");
         PrintWriter tw = new PrintWriter(fstream, true);
 
         // Descriptions
-        writeDescriptions(tw, nations, modname);
+        writeDescriptions(nations, modname);
 
         // Description!
         tw.println("-- NationGen - " + modname);
@@ -551,17 +503,13 @@ public class NationGen
         tw.println("-- Generated with version " + version + ".");
         tw.println("-- Generation setting code: " + settings.getSettingInteger());
 
-        if(!manyseeds)
-        {
+        if (!manySeeds) {
             tw.println("-- Nation seeds generated with seed " + this.seed + ".");
-        }
-        else
-        {
+        } else {
             tw.println("-- Nation seeds specified by user.");
         }
 
-        for(Nation n : nations)
-        {
+        for (Nation n : nations) {
             tw.println("-- Nation " + n.nationid + ": " + n.name + " generated with seed " + n.seed);
         }
         tw.println("-----------------------------------");
@@ -570,28 +518,31 @@ public class NationGen
         // Actual mod definition
         tw.println("#modname \"NationGen - " + this.modname + "\"");
         tw.println("#description \"A NationGen generated nation!\"");
-        
+
         // Banner!
         generateBanner(nations.get(0).colors[0], this.modname, dir + "/banner.tga", nations.get(0).flag);
         tw.println("#icon \"" + dir + "banner.tga\"");
         tw.println("");
-        
+
         // Write items!
         // This is a relic from Dom3 version, but oh well.
         System.out.print("Writing items and spells");
         this.writeCustomItems(tw);
         this.writeSpells(tw);
-        for (Nation nation : nations) 
-        {
+
+        for (Nation ignored : nations) {
             System.out.print(".");
         }
+
         System.out.println(" Done!");
-	
+
         // Write units!
         System.out.print("Writing units");
-        for(Nation nation : nations)
-        {
-            new File("./mods/" + dir + "/" + nation.nationid + "-" + nation.name.toLowerCase().replaceAll(" ", "_") + "/").mkdir();
+        for (Nation nation : nations) {
+
+            if (! new File("./mods/" + dir + "/" + nation.nationid + "-" + nation.name.toLowerCase().replaceAll(" ", "_") + "/").mkdir()) {
+                throw new IOException("Could not create nation mod directory !");
+            }
 
             // Unit definitions
             nation.writeUnits(tw, dir + "/" + nation.nationid + "-" + nation.name.toLowerCase().replaceAll(" ", "_") + "/");
@@ -601,19 +552,17 @@ public class NationGen
 
         // Write sites!
         System.out.print("Writing sites");
-        
-        for(Nation nation : nations)
-        {
+
+        for (Nation nation : nations) {
             // Site definitions
             nation.writeSites(tw);
             System.out.print(".");
         }
         System.out.println(" Done!");
-      
+
         // Write nation definitions!
         System.out.print("Writing nations");
-        for(Nation nation : nations)
-        {
+        for (Nation nation : nations) {
             // Flag
             Drawing.writeTGA(nation.flag, "mods/" + dir + "/" + nation.nationid + "-" + nation.name.toLowerCase().replaceAll(" ", "_") + "/flag.tga");
 
@@ -622,19 +571,18 @@ public class NationGen
             System.out.print(".");
         }
         System.out.println(" Done!");
-        
+
         // Draw previews
         drawPreviews(nations, dir);
-        
-        if(settings.get("hidevanillanations") == 1)
-        {
+
+        if (settings.get("hidevanillanations") == 1) {
             hideVanillaNations(tw, nations.size());
         }
-		
+
         tw.flush();
         tw.close();
         fstream.close();
-        
+
         // Displays mage names
         /*
         System.out.println();
@@ -649,252 +597,199 @@ public class NationGen
         System.out.println();
        */
     }
-	
-    private void hideVanillaNations(PrintWriter tw, int nationcount)
-    {
+
+    private void hideVanillaNations(PrintWriter tw, int nationCount) {
         System.out.print("Hiding vanilla nations... ");
         tw.println("-- Hiding vanilla nations");
         tw.println("-----------------------------------");
 
-        if(nationcount > 1)
-        {
+        if (nationCount > 1) {
             tw.println("#disableoldnations");
             tw.println();
             System.out.println(" Done!");
-        }
-        else
-        {
+        } else {
             System.out.println("Unable to hide vanilla nations with only one random nation!");
         }
     }
-	
-    public void writeSpells(PrintWriter tw)
-    {
-        if(spellsToWrite.isEmpty())
-        {
+
+    private void writeSpells(PrintWriter tw) {
+
+        if (spellsToWrite.isEmpty()) {
             return;
         }
 
         tw.println("--- Spells:");
-        for(Spell s : this.spellsToWrite)
-        {	
+        for (Spell s : this.spellsToWrite) {
             tw.println("#newspell");
-            for(Command c : s.commands)
-            {
+            for (Command c : s.commands) {
                 tw.println(c);
             }
-            for(int id : s.nationids)
-            {
+            for (int id : s.nationids) {
                 tw.println("#restricted " + id);
             }
             tw.println("#end");
             tw.println();
         }
     }
-	
-    public void writeCustomItems(PrintWriter tw)
-    {
-        if(chosenCustomitems.isEmpty())
-        {
+
+    private void writeCustomItems(PrintWriter tw) {
+        if (chosenCustomItems.isEmpty()) {
             return;
         }
 
         tw.println("--- Generic custom items:");
-        for(CustomItem ci : this.chosenCustomitems)
-        {	
+        for (CustomItem ci : this.chosenCustomItems) {
             ci.write(tw);
             //tw.println("");
         }
     }
 
-    public CustomItem getCustomItem(String name)
-    {
-        CustomItem citem = null;
-        for(CustomItem ci : this.customitems)
-        {
-            if(ci.name.equals(name) && !this.chosenCustomitems.contains(ci))
-            {
-                citem = ci;
-                break;
+    /**
+     * Retrieve a {@link CustomItem} based on a name.
+     *
+     * @param name Name of potential custom item
+     * @return The {@link CustomItem} associated with that name (null if none found)
+     */
+    public CustomItem getCustomItem(String name) {
+        for (CustomItem customItem : this.customItems) {
+            if (customItem.name.equals(name) && !this.chosenCustomItems.contains(customItem)) {
+                return customItem;
             }
         }
-        return citem;
+        return null;
     }
-	
-    public String getCustomItemId(String name)
-    {
-        for(CustomItem ci : this.chosenCustomitems)
-        {
-            if(ci.name.equals(name))
-            {
-                return ci.id;
-            }  
+
+    public String getCustomItemId(String name) {
+
+        for (CustomItem customItem : this.chosenCustomItems) {
+            if (customItem.name.equals(name)) {
+                return customItem.id;
+            }
         }
 
-        CustomItem citem = null;
-        for(CustomItem ci : this.customitems)
-        {
-            if(ci.name.equals(name) && !chosenCustomitems.contains(ci))
-            {
-                citem = ci.getCopy();
+        CustomItem cItem = null;
+
+        for (CustomItem customItem : this.customItems) {
+            if (customItem.name.equals(name) && !chosenCustomItems.contains(customItem)) {
+                cItem = customItem.getCopy();
                 break;
             }
         }
 
-        if(citem == null)
-        {
+        if (cItem == null) {
             System.out.println("WARNING: No custom item named " + name + " was found!");
             return "-1";
         }
-		
-        if(idHandler != null)
-        {
-            if(citem.armor)
-            {
-                citem.id = idHandler.nextArmorId() + "";
+
+        if (idHandler != null) {
+            if (cItem.armor) {
+                cItem.id = idHandler.nextArmorId() + "";
+            } else {
+                cItem.id = idHandler.nextWeaponId() + "";
             }
-            else
-            {
-                citem.id = idHandler.nextWeaponId() + "";
-            }
-        }
-        else
-        {
+        } else {
             System.out.println("ERROR: idHandler was not initialized!");
-            citem.id = "-1";
+            cItem.id = "-1";
         }
-		
+
         // -521978361
         // Check references!
-        for(String str : citem.values.keySet())
-        {
-            if(str.equals("secondaryeffect") || str.equals("secondaryeffectalways"))
-            {
-                String customItemSecondaryEffect = citem.values.get(str);
-                boolean isNumeric = customItemSecondaryEffect.chars().allMatch( Character::isDigit );
-                if (isNumeric)
-                {
+        for (String str : cItem.values.keySet()) {
+            if (str.equals("secondaryeffect") || str.equals("secondaryeffectalways")) {
+                String customItemSecondaryEffect = cItem.values.get(str);
+                boolean isNumeric = customItemSecondaryEffect.chars().allMatch(Character::isDigit);
+                if (isNumeric) {
+                    //todo: this parseInt does nothing ...
                     Integer.parseInt(customItemSecondaryEffect);
-                }
-                else
-                {
+                } else {
                     String id;
                     id = getCustomItemId(customItemSecondaryEffect);
-                    citem.values.put(str, id);
+                    cItem.values.put(str, id);
                 }
             }
         }
-		
-        this.chosenCustomitems.add(citem);
-        //this.customitems.remove(citem);
 
-        if(!citem.armor)
-        {
-            weapondb.addToMap(citem.id, citem.getHashMap());
-        }
-        else
-        {
-            armordb.addToMap(citem.id, citem.getHashMap());
+        this.chosenCustomItems.add(cItem);
+//        this.customItems.remove(cItem);
+
+        if (!cItem.armor) {
+            weaponDB.addToMap(cItem.id, cItem.getHashMap());
+        } else {
+            armorDB.addToMap(cItem.id, cItem.getHashMap());
         }
 
-        return citem.id;
+        return cItem.id;
     }
 
-    public boolean hasShapeShift(String id)
-    {
-        int realid = -1;
-        if (id.isEmpty()) 
-        {
+    private boolean hasShapeShift(String id) {
+        int realId = -1;
+        if (id.isEmpty()) {
             return false;
-        }
-        else
-        {
-            boolean isNumeric = id.chars().allMatch( Character::isDigit );
-            if (isNumeric) 
-            {
-                realid = Integer.parseInt(id);    
+        } else {
+            boolean isNumeric = id.chars().allMatch(Character::isDigit);
+            if (isNumeric) {
+                realId = Integer.parseInt(id);
             }
         }
 
-        for(ShapeChangeUnit su : this.forms)
-        {
-            if(su.id == realid)
-            {
+        for (ShapeChangeUnit su : this.forms) {
+            if (su.id == realId) {
                 return true;
             }
         }
         return false;
     }
 
-    private void polishNation(Nation n)
-    {
+    private void polishNation(Nation n) {
         n.finalizeUnits();
-        handleShapeshifts(n);
-        handleSpells(n.spells, n);
+        handleShapeShifts(n);
+        handleSpells(n); //before : handleSpells(n.spells, n)
     }
-	
-    private void handleShapeshifts(Nation n)
-    {
-	       
-        List<Unit> shapeshiftUnits = n.generateUnitList();
-        shapeshiftUnits.addAll(n.heroes);
+
+    private void handleShapeShifts(Nation n) {
+
+        List<Unit> shapeShiftUnits = n.generateUnitList();
+        shapeShiftUnits.addAll(n.heroes);
         List<ShapeChangeUnit> sul = new ArrayList<>();
 
-        for(Unit u : shapeshiftUnits)
-        {
-            for(Command c : u.commands)
-            {	
-                if(c.command.contains("shape") && !hasShapeShift(c.args.get(0)))
-                {
-                    if((c.command.equals("#firstshape") && u.tags.contains("montagunit")))
-                    {
-                        handleMontag(c, u, shapeshiftUnits);
+        for (Unit u : shapeShiftUnits) {
+            for (Command c : u.commands) {
+                if (c.command.contains("shape") && !hasShapeShift(c.args.get(0))) {
+                    if ((c.command.equals("#firstshape") && u.tags.contains("montagunit"))) {
+                        handleMonTag(c, u, shapeShiftUnits);
+                    } else {
+                        handleShapeShift(c, u);
                     }
-                    else
-                    {
-                        handleShapeshift(c, u);
-                    }
-                }
-                else if(c.command.equals("#montag"))
-                {
-                    handleMontag(c, u, shapeshiftUnits);
+                } else if (c.command.equals("#montag")) {
+                    handleMonTag(c, u, shapeShiftUnits);
                 }
             }
         }
-		
-        for(ShapeChangeUnit su : forms)
-        {
-            if(shapeshiftUnits.contains(su.otherForm))
-            {
+
+        for (ShapeChangeUnit su : forms) {
+            if (shapeShiftUnits.contains(su.otherForm)) {
                 sul.add(su);
             }
         }
-        
-        for(ShapeChangeUnit su : sul)
-        {	
+
+        for (ShapeChangeUnit su : sul) {
             su.polish(this, n);
 
             // Replace command
-            for(Command c : su.thisForm.commands)
-            {
+            for (Command c : su.thisForm.commands) {
                 // Weapons
-                if(c.command.equals("#weapon"))
-                {
+                if (c.command.equals("#weapon")) {
                     String realarg = c.args.get(0);
-                    if(realarg.contains(" "))
-                    {
+                    if (realarg.contains(" ")) {
                         realarg = realarg.split(" ")[0];
                     }
-                            
-                    if (realarg.isEmpty()) 
-                    {
+
+                    if (realarg.isEmpty()) {
                         c.args.set(0, getCustomItemId(c.args.get(0)) + "");
-                    }
-                    else
-                    {
-                        boolean isNumeric = realarg.chars().allMatch( Character::isDigit );
-                        if (isNumeric) 
-                        {
+                    } else {
+                        boolean isNumeric = realarg.chars().allMatch(Character::isDigit);
+                        if (isNumeric) {
+                            //todo: again unused parseInt ...
                             Integer.parseInt(realarg);
                         }
                     }
@@ -902,44 +797,39 @@ public class NationGen
             }
         }
     }
-	
-    private HashMap<String, Integer> montagmap = new HashMap<>();
-    private void handleMontag(Command c, Unit u, List<Unit> units)
-    {
-        Integer montag = montagmap.get(c.args.get(0));
-        if(montag == null)
-        {
-            montag = idHandler.nextMontagId();
-            montagmap.put(c.args.get(0), montag);
+
+    private HashMap<String, Integer> monTagMap = new HashMap<>();
+
+    //todo: monTag -> monster tag ????
+    //todo: Unit and units not used .. what for ?
+    @SuppressWarnings("unused")
+    private void handleMonTag(Command command, Unit u, List<Unit> units) {
+        Integer monTag = monTagMap.get(command.args.get(0));
+        if (monTag == null) {
+            monTag = idHandler.nextMontagId();
+            monTagMap.put(command.args.get(0), monTag);
             // System.out.println("Added "  + montag + " for " + c.args.get(0));
         }
 
-        if(c.command.equals("#firstshape"))
-        {
-            c.args.set(0, "-" + montag);
-        }
-        else if(c.command.equals("#montag"))
-        {
-            c.args.set(0, "" + montag);
+        if (command.command.equals("#firstshape")) {
+            command.args.set(0, "-" + monTag);
+        } else if (command.command.equals("#montag")) {
+            command.args.set(0, "" + monTag);
         }
     }
-	
-    private void handleShapeshift(Command c, Unit u)
-    {		
+
+    private void handleShapeShift(Command c, Unit u) {
         ShapeShift shift;
         shift = null;
-        
-        for(ShapeShift s : secondshapes)
-        {
-            if(s.name.equals(c.args.get(0)))
-            {
+
+        for (ShapeShift s : secondShapes) {
+            if (s.name.equals(c.args.get(0))) {
                 shift = s;
                 break;
             }
         }
-		
-        if(shift == null)
-        {
+
+        if (shift == null) {
             System.out.println("Shapeshift named " + c.args.get(0) + " could not be found.");
             return;
         }
@@ -947,8 +837,7 @@ public class NationGen
 
         su.id = idHandler.nextUnitId();
 
-        switch (c.command) 
-        {
+        switch (c.command) {
             case "#shapechange":
                 su.shiftcommand = "#shapechange";
                 break;
@@ -980,70 +869,57 @@ public class NationGen
         c.args.set(0, "" + su.id);
         forms.add(su);
     }
-	
+
     /**
      * Loads the list of commands that second shapes should inherit from the primary shape
-     * @param filename
-     * @return
      */
-    public int loadSecondShapeInheritance(String filename)
-    {
+    @SuppressWarnings({"SameParameterValue", "UnusedReturnValue"})
+    private int loadSecondShapeInheritance(String filename) {
         int amount = 0;
-		
-        Scanner file;
-		
-        try 
-        {
-            file = new Scanner(new FileInputStream(System.getProperty("user.dir") + "/" + filename));
-        } 
-        catch (FileNotFoundException e) 
-        {
+
+        try (Scanner file = new Scanner(new FileInputStream(System.getProperty("user.dir") + "/" + filename))) {
+
+            while (file.hasNextLine()) {
+                String line = file.nextLine();
+                if (line.startsWith("-")) {
+                    continue;
+                }
+
+                List<String> args = Generic.parseArgs(line);
+                if (args.isEmpty()) {
+                    continue;
+                }
+
+                switch (args.get(0)) {
+                    case "all":
+                        secondShapeMountCommands.add(args.get(1));
+                        secondShapeNonMountCommands.add(args.get(1));
+                        amount++;
+                        break;
+                    case "mount":
+                        secondShapeMountCommands.add(args.get(1));
+                        amount++;
+                        break;
+                    case "nonmount":
+                        secondShapeNonMountCommands.add(args.get(1));
+                        amount++;
+                        break;
+                    case "racepose":
+                        secondShapeRacePoseCommands.add(args.get(1));
+                        amount++;
+                        break;
+                }
+            }
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
             return 0;
         }
 
-        while(file.hasNextLine())
-        {
-            String line = file.nextLine();
-            if(line.startsWith("-"))
-            {
-                continue; 
-            }
-
-            List<String> args = Generic.parseArgs(line);
-            if(args.isEmpty())
-            {
-                continue;
-            }
-
-            if(args.get(0).equals("all") && args.size() > 0)
-            {
-                secondShapeMountCommands.add(args.get(1));
-                secondShapeNonMountCommands.add(args.get(1));
-                amount++;
-            }
-            else if(args.get(0).equals("mount") && args.size() > 0)
-            {
-                secondShapeMountCommands.add(args.get(1));
-                amount++;
-            }
-            else if(args.get(0).equals("nonmount") && args.size() > 0)
-            {
-                secondShapeNonMountCommands.add(args.get(1));
-                amount++;
-            }
-            else if(args.get(0).equals("racepose") && args.size() > 0)
-            {
-                secondShapeRacePoseCommands.add(args.get(1));
-                amount++;
-            }
-        }  
-        file.close();
         return amount;
     }
 
-    public static void generateBanner(Color c, String name, String output, BufferedImage flag) throws IOException
-    {
+    @SuppressWarnings("unused")
+    private static void generateBanner(Color c, String name, String output, BufferedImage flag) throws IOException {
         BufferedImage combined = new BufferedImage(256, 64, BufferedImage.TYPE_INT_RGB);
         Graphics g = combined.getGraphics();
 
@@ -1062,19 +938,15 @@ public class NationGen
 
         g.setFont(f);
         g.drawString(name, 64, 48);
-        
+
         Drawing.writeTGA(combined, "./mods/" + output);
     }
-	
+
     /**
      * Copies any poses from each race's spriteGenPoses list into its poses list
-     * @param filename
-     * @return
      */
-    public void setSpriteGenPoses()
-    {
-        for(Race race : races)
-        {
+    public void setSpriteGenPoses() {
+        for (Race race : this.races) {
             race.poses.addAll(race.spriteGenPoses);
         }
     }

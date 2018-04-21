@@ -30,15 +30,15 @@ public class GodGen extends ChanceIncHandler {
 			List<String> args = Generic.parseArgs(tag);
 			if(args.get(0).equals("gods"))
 			{
-				orig.addAll(n.nationGen.miscdef.get(args.get(1)));
+				orig.addAll(n.nationGen.miscDef.get(args.get(1)));
 			}
 			if(args.get(0).equals("additionalgods"))
 			{
-				add.addAll(n.nationGen.miscdef.get(args.get(1)));
+				add.addAll(n.nationGen.miscDef.get(args.get(1)));
 			}
 		}
 		if(orig.size() == 0)
-			orig.addAll(n.nationGen.miscdef.get("defaultgods"));
+			orig.addAll(n.nationGen.miscDef.get("defaultgods"));
 
 	}
 	

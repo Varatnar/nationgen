@@ -44,56 +44,56 @@ public class MageNamer extends Namer {
 		for(String tag : n.races.get(0).tags)
 		{
 			List<String> args = Generic.parseArgs(tag);
-			if(args.get(0).equals("magenames"))
+			if(args.get(0).equals("mageNames"))
 			{
-				names.addAll(n.nationGen.magenames.get(args.get(1)));
+				names.addAll(n.nationGen.mageNames.get(args.get(1)));
 			}
 			else if(args.get(0).equals("mageadjectives"))
 			{
-				adjectives.addAll(n.nationGen.magenames.get(args.get(1)));
+				adjectives.addAll(n.nationGen.mageNames.get(args.get(1)));
 			}
 			else if(args.get(0).equals("magenouns"))
 			{
-				nouns.addAll(n.nationGen.magenames.get(args.get(1)));
+				nouns.addAll(n.nationGen.mageNames.get(args.get(1)));
 			}
 			else if(args.get(0).equals("tieredpriestnames"))
 			{
-				tieredpriest.addAll(n.nationGen.magenames.get(args.get(1)));
+				tieredpriest.addAll(n.nationGen.mageNames.get(args.get(1)));
 			}
 			else if(args.get(0).equals("tieredmagenames"))
 			{
-				tieredmage.addAll(n.nationGen.magenames.get(args.get(1)));
+				tieredmage.addAll(n.nationGen.mageNames.get(args.get(1)));
 			}
 			else if(args.get(0).equals("magerankedprefixes"))
 			{
-				rankedprefix.addAll(n.nationGen.magenames.get(args.get(1)));
+				rankedprefix.addAll(n.nationGen.mageNames.get(args.get(1)));
 			}
 			else if(args.get(0).equals("extranamenouns"))
 			{
-				extraparts_n.addAll(n.nationGen.magenames.get(args.get(1)));
+				extraparts_n.addAll(n.nationGen.mageNames.get(args.get(1)));
 			}
 			else if(args.get(0).equals("extranameadjectives"))
 			{
-				extraparts_a.addAll(n.nationGen.magenames.get(args.get(1)));
+				extraparts_a.addAll(n.nationGen.mageNames.get(args.get(1)));
 			}
 		}
 		
 		if(names.size() == 0)
-			names = n.nationGen.magenames.get("defaultnames");
+			names = n.nationGen.mageNames.get("defaultnames");
 		if(adjectives.size() == 0)
-			adjectives = n.nationGen.magenames.get("defaultadjectives");
+			adjectives = n.nationGen.mageNames.get("defaultadjectives");
 		if(nouns.size() == 0)
-			nouns = n.nationGen.magenames.get("defaultnouns");
+			nouns = n.nationGen.mageNames.get("defaultnouns");
 		if(tieredpriest.size() == 0)
-			tieredpriest = n.nationGen.magenames.get("defaulttieredpriestnames");
+			tieredpriest = n.nationGen.mageNames.get("defaulttieredpriestnames");
 		if(tieredmage.size() == 0)
-			tieredmage = n.nationGen.magenames.get("defaulttieredmagenames");
+			tieredmage = n.nationGen.mageNames.get("defaulttieredmagenames");
 		if(rankedprefix.size() == 0)
-			rankedprefix = n.nationGen.magenames.get("defaultprefixranks");
+			rankedprefix = n.nationGen.mageNames.get("defaultprefixranks");
 		if(extraparts_n.size() == 0)
-			extraparts_n = n.nationGen.magenames.get("defaultextranamenouns");
+			extraparts_n = n.nationGen.mageNames.get("defaultextranamenouns");
 		if(extraparts_a.size() == 0)
-			extraparts_a = n.nationGen.magenames.get("defaultextranameadjectives");
+			extraparts_a = n.nationGen.mageNames.get("defaultextranameadjectives");
 	}
 	
 	

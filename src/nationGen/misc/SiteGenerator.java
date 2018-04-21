@@ -71,7 +71,7 @@ public class SiteGenerator {
 		
 		Filter f = null;
 		ChanceIncHandler chandler = new ChanceIncHandler(n);
-		List<Filter> filters = ChanceIncHandler.retrieveFilters("sitefeatures", "default_sitefeatures", n.nationGen.miscdef, null, n.races.get(0));
+		List<Filter> filters = ChanceIncHandler.retrieveFilters("sitefeatures", "default_sitefeatures", n.nationGen.miscDef, null, n.races.get(0));
 		f = chandler.getRandom(filters);
 		if(!f.name.equals("nothing"))
 			stuff++;

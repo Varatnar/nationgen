@@ -19,7 +19,6 @@ import nationGen.misc.ChanceIncHandler;
 import nationGen.misc.Command;
 import nationGen.misc.ItemSet;
 import nationGen.nation.Nation;
-import nationGen.rostergeneration.TroopTemplate;
 import nationGen.rostergeneration.montagtemplates.SacredMontagTemplate;
 import nationGen.units.Unit;
 
@@ -357,7 +356,7 @@ public class SacredGenerator extends TroopGenerator {
 		CustomItemGen ciGen = new CustomItemGen(nation);
 		List<MagicItem> magicItems = new ArrayList<MagicItem>();
 
-		magicItems = ChanceIncHandler.retrieveFilters("magicitems", "defaultprimary", nationGen.magicitems, u.pose, u.race);
+		magicItems = ChanceIncHandler.retrieveFilters("magicItems", "defaultprimary", nationGen.magicItems, u.pose, u.race);
 
 		CustomItem item = null;
 		
@@ -787,7 +786,7 @@ public class SacredGenerator extends TroopGenerator {
 
 		if(u.pose.getItems("bonusweapon") != null && u.pose.getItems("bonusweapon").possibleItems() > 0)
 		{
-			int prot = nationGen.armordb.GetInteger(u.getSlot("armor").id, "prot");
+			int prot = nationGen.armorDB.GetInteger(u.getSlot("armor").id, "prot");
 			double local_bwchance = 0.4 + this.getBonusWeaponChance(u);
 			if(random.nextDouble() < local_bwchance - (double)prot * 0.02)
 			{

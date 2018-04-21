@@ -74,13 +74,13 @@ public class DescriptionReplacer {
 				Item i = u.getSlot(str);
 				if(i != null && !i.armor && !i.id.equals("-1"))
 				{
-					if(!n.nationGen.weapondb.GetValue(i.id, "weapon_name").equals("") && !weapons.contains(n.nationGen.weapondb.GetValue(i.id, "weapon_name")))
+					if(!n.nationGen.weaponDB.GetValue(i.id, "weapon_name").equals("") && !weapons.contains(n.nationGen.weaponDB.GetValue(i.id, "weapon_name")))
 					{
-						weapons.add(NameGenerator.addPreposition(n.nationGen.weapondb.GetValue(i.id, "weapon_name").toLowerCase()));
-						weapons_plural.add(NameGenerator.plural(n.nationGen.weapondb.GetValue(i.id, "weapon_name").toLowerCase()));
+						weapons.add(NameGenerator.addPreposition(n.nationGen.weaponDB.GetValue(i.id, "weapon_name").toLowerCase()));
+						weapons_plural.add(NameGenerator.plural(n.nationGen.weaponDB.GetValue(i.id, "weapon_name").toLowerCase()));
 
 					}
-					else if(!weapons.contains(n.nationGen.weapondb.GetValue(i.id, "weapon_name")))
+					else if(!weapons.contains(n.nationGen.weaponDB.GetValue(i.id, "weapon_name")))
 					{
 						weapons.add("NOT IN WEAPONDB: " + i.name + " in " + i.slot);
 						weapons_plural.add("NOT IN WEAPONDB: " + i.name + " in " + i.slot);	
@@ -104,17 +104,17 @@ public class DescriptionReplacer {
 					if(i != null && !i.armor && !i.id.equals("-1"))
 					{
 
-						if(!n.nationGen.weapondb.GetValue(i.id, "weapon_name").equals("") && !weapons.contains(n.nationGen.weapondb.GetValue(i.id, "weapon_name")))
+						if(!n.nationGen.weaponDB.GetValue(i.id, "weapon_name").equals("") && !weapons.contains(n.nationGen.weaponDB.GetValue(i.id, "weapon_name")))
 						{
 							
 
 							List<String> tmp = new ArrayList<String>();
 							
-							if(n.nationGen.weapondb.GetValue(i.id, "dt_blunt").equals("1"))
+							if(n.nationGen.weaponDB.GetValue(i.id, "dt_blunt").equals("1"))
 								tmp.add("blunt");
-							if(n.nationGen.weapondb.GetValue(i.id, "dt_slash").equals("1"))
+							if(n.nationGen.weaponDB.GetValue(i.id, "dt_slash").equals("1"))
 								tmp.add("slashing");
-							if(n.nationGen.weapondb.GetValue(i.id, "dt_pierce").equals("1"))
+							if(n.nationGen.weaponDB.GetValue(i.id, "dt_pierce").equals("1"))
 								tmp.add("piercing");
 							
 							
@@ -161,13 +161,13 @@ public class DescriptionReplacer {
 			
 			if(i != null && i.armor && !i.id.equals("-1"))
 			{
-				prot = n.nationGen.armordb.GetInteger(i.id, "prot", 0);
+				prot = n.nationGen.armorDB.GetInteger(i.id, "prot", 0);
 
-				if(!n.nationGen.armordb.GetValue(i.id, "armorname").equals("") && !weapons.contains(n.nationGen.armordb.GetValue(i.id, "armorname")))
+				if(!n.nationGen.armorDB.GetValue(i.id, "armorname").equals("") && !weapons.contains(n.nationGen.armorDB.GetValue(i.id, "armorname")))
 				{
-					weapons.add(n.nationGen.armordb.GetValue(i.id, "armorname"));
+					weapons.add(n.nationGen.armorDB.GetValue(i.id, "armorname"));
 				}
-				else if(!weapons.contains(n.nationGen.armordb.GetValue(i.id, "armorname")))
+				else if(!weapons.contains(n.nationGen.armorDB.GetValue(i.id, "armorname")))
 				{
 					weapons.add("NOT IN ARMORDB: " + i.name + " in " + i.slot);	
 				}

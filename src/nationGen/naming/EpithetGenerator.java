@@ -24,7 +24,7 @@ public class EpithetGenerator {
 	public void giveEpithet(Nation n)
 	{
 		Random random = new Random(n.random.nextInt());
-		mageepithetparts = ChanceIncHandler.retrieveFilters("epithet_era_names", "default_epithet_parts", ngen.miscnames, null, n.races.get(0));
+		mageepithetparts = ChanceIncHandler.retrieveFilters("epithet_era_names", "default_epithet_parts", ngen.miscNames, null, n.races.get(0));
 
 		
 		String epithet = "";

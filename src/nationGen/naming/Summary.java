@@ -203,7 +203,7 @@ public class Summary {
 					sacred = sacred + " chariot";
 				else if(sacredunit.pose.roles.contains("ranged") || sacredunit.pose.roles.contains("sacred ranged"))
 				{
-					if(n.nationGen.weapondb.GetInteger(sacredunit.getSlot("weapon").id, "rng") > 12)
+					if(n.nationGen.weaponDB.GetInteger(sacredunit.getSlot("weapon").id, "rng") > 12)
 						sacred = sacred + " ranger";
 					else
 						sacred = sacred + " skirmisher";

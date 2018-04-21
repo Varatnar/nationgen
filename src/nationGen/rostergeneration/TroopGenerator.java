@@ -1,6 +1,5 @@
 package nationGen.rostergeneration;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -167,7 +166,7 @@ public class TroopGenerator {
 			dw_maxlength = Integer.parseInt(Generic.getTagValue(tags, "dw_maxlength"));
 		
 		boolean regularok = true;
-		if((nationGen.weapondb.GetInteger(it.id, "lgt") > dw_maxlength) || nationGen.weapondb.GetInteger(it.id, "2h") == 1)
+		if((nationGen.weaponDB.GetInteger(it.id, "lgt") > dw_maxlength) || nationGen.weaponDB.GetInteger(it.id, "2h") == 1)
 		{
 			regularok = false;
 		}
@@ -546,7 +545,7 @@ public class TroopGenerator {
 				if((r == 0 || r == 1 || r == 2) && !has1h) // 1h
 				{
 
-					tempweps.addAll(t.pose.getItems("weapon").filterDom3DB("2h", "0", true, nationGen.weapondb));
+					tempweps.addAll(t.pose.getItems("weapon").filterDom3DB("2h", "0", true, nationGen.weaponDB));
 					tempweps.remove(oldweps);
 					for(Item i : t.pose.getItems("weapon"))
 					{
@@ -558,7 +557,7 @@ public class TroopGenerator {
 				else if(r == 3 && !has2h) // 2h
 				{
 
-					tempweps.addAll(t.pose.getItems("weapon").filterDom3DB("2h", "1", true, nationGen.weapondb));
+					tempweps.addAll(t.pose.getItems("weapon").filterDom3DB("2h", "1", true, nationGen.weaponDB));
 					tempweps.remove(oldweps);
 					for(Item i : t.pose.getItems("weapon"))
 					{
@@ -932,18 +931,18 @@ public class TroopGenerator {
 		
 		double rescost = u.getResCost(false);
 		
-		rescost += 4 * nationGen.weapondb.GetInteger(u.getSlot("weapon").id, "res");
-		if(nationGen.weapondb.GetValue(u.getSlot("weapon").id, "2h").equals("1"))
-			rescost += 2 * nationGen.weapondb.GetInteger(u.getSlot("weapon").id, "res");
+		rescost += 4 * nationGen.weaponDB.GetInteger(u.getSlot("weapon").id, "res");
+		if(nationGen.weaponDB.GetValue(u.getSlot("weapon").id, "2h").equals("1"))
+			rescost += 2 * nationGen.weaponDB.GetInteger(u.getSlot("weapon").id, "res");
 
 
 		
 		if(u.getSlot("offhand") != null && u.getSlot("offhand").armor)
-			rescost += 4 * nationGen.armordb.GetInteger(u.getSlot("offhand").id, "res");
+			rescost += 4 * nationGen.armorDB.GetInteger(u.getSlot("offhand").id, "res");
 		else if(u.getSlot("offhand") != null)
-			rescost += 4 * nationGen.weapondb.GetInteger(u.getSlot("offhand").id, "res");
+			rescost += 4 * nationGen.weaponDB.GetInteger(u.getSlot("offhand").id, "res");
 		
-		if(nationGen.weapondb.GetInteger(u.getSlot("weapon").id, "dmg") <= 4)
+		if(nationGen.weaponDB.GetInteger(u.getSlot("weapon").id, "dmg") <= 4)
 			rescost *= 0.75;
 		
 		if(role.equals("mounted")) // +15% res cost for calculations for cavalry
@@ -968,7 +967,7 @@ public class TroopGenerator {
 		
 		
 	
-		boolean twohand = nationGen.weapondb.GetValue(weapon.id, "2h").equals("1");
+		boolean twohand = nationGen.weaponDB.GetValue(weapon.id, "2h").equals("1");
 		if(twohand && !this.isDualWieldEligible(u))
 			u.setSlot("offhand", null);
 	
@@ -1044,9 +1043,9 @@ public class TroopGenerator {
 			if(!this.has1H(used) && random.nextDouble() < 0.5)
 			{
 				if(has1H(all))
-					all = all.filterDom3DB("2h", "0", true, nationGen.weapondb);
+					all = all.filterDom3DB("2h", "0", true, nationGen.weaponDB);
 				if(has1H(old))
-					old = old.filterDom3DB("2h", "0", true, nationGen.weapondb);
+					old = old.filterDom3DB("2h", "0", true, nationGen.weaponDB);
 			}
 		}
 		
@@ -1114,13 +1113,13 @@ public class TroopGenerator {
 	
 	public boolean has1H(ItemSet used)
 	{
-		used = used.filterSlot("weapon").filterDom3DB("rng", "0", true, nationGen.weapondb).filterDom3DB("2h", "0", true, nationGen.weapondb);
+		used = used.filterSlot("weapon").filterDom3DB("rng", "0", true, nationGen.weaponDB).filterDom3DB("2h", "0", true, nationGen.weaponDB);
 		return(used.size() > 0);
 	}
 	
 	public boolean has2H(ItemSet used)
 	{
-		used = used.filterSlot("weapon").filterDom3DB("rng", "0", true, nationGen.weapondb).filterDom3DB("2h", "1", true, nationGen.weapondb);
+		used = used.filterSlot("weapon").filterDom3DB("rng", "0", true, nationGen.weaponDB).filterDom3DB("2h", "1", true, nationGen.weaponDB);
 		return(used.size() > 0);
 	}
 	

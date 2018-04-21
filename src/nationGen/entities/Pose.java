@@ -148,9 +148,9 @@ public class Pose extends Filter {
 
                         CustomItem citem = nationGen.getCustomItem(i.id);
                         if (!citem.armor)
-                            nationGen.weapondb.addToMap(i.id, citem.getHashMap());
+                            nationGen.weaponDB.addToMap(i.id, citem.getHashMap());
                         else {
-                            nationGen.armordb.addToMap(i.id, citem.getHashMap());
+                            nationGen.armorDB.addToMap(i.id, citem.getHashMap());
                         }
                     }
                 }

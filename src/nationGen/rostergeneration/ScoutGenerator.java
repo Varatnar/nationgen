@@ -80,14 +80,14 @@ public class ScoutGenerator extends TroopGenerator {
 		Pose p = chandler.getRandom(possiblePoses, race, posename);
 		Unit template = unitGen.generateUnit(race, p);
 
-		chandler.getRandom(p.getItems("weapon").filterDom3DB("2h", "0", true, nationGen.weapondb), template);
+		chandler.getRandom(p.getItems("weapon").filterDom3DB("2h", "0", true, nationGen.weaponDB), template);
 		// Select a mainhand weapon
 		Item weapon = null;
 		if(tier != 3) //  Scout/spy gets whatever non-2h
-			weapon = chandler.getRandom(p.getItems("weapon").filterDom3DB("2h", "0", true, nationGen.weapondb), template);
+			weapon = chandler.getRandom(p.getItems("weapon").filterDom3DB("2h", "0", true, nationGen.weaponDB), template);
 		else // Assassin gets max length 3 weapons
 		{
-			weapon = chandler.getRandom(p.getItems("weapon").filterDom3DBInteger("lgt", 3, true, nationGen.weapondb), template);
+			weapon = chandler.getRandom(p.getItems("weapon").filterDom3DBInteger("lgt", 3, true, nationGen.weaponDB), template);
 		}
 		// Failsafe
 		if(weapon == null)
@@ -124,11 +124,11 @@ public class ScoutGenerator extends TroopGenerator {
 		}
 		else
 		{
-			armor = nation.usedItems.filterSlot("armor").filterForPose(p).filterProt(nationGen.armordb, 0, 10).getRandom(chandler, nation.random);
+			armor = nation.usedItems.filterSlot("armor").filterForPose(p).filterProt(nationGen.armorDB, 0, 10).getRandom(chandler, nation.random);
 			if(armor == null)
-				armor = chandler.getRandom(p.getItems("armor").filterProt(nationGen.armordb, 0, 10), template);
+				armor = chandler.getRandom(p.getItems("armor").filterProt(nationGen.armorDB, 0, 10), template);
 			if(armor == null)
-				armor = chandler.getRandom(p.getItems("armor").filterProt(nationGen.armordb, 0, 12), template);
+				armor = chandler.getRandom(p.getItems("armor").filterProt(nationGen.armorDB, 0, 12), template);
 			if(armor == null)
 				armor = chandler.getRandom(p.getItems("armor"), template);
 		}
@@ -142,7 +142,7 @@ public class ScoutGenerator extends TroopGenerator {
 		template.setSlot("armor", armor);
 		
 		Item helmet = null;
-		int prot = nationGen.armordb.GetInteger(template.getSlot("armor").id, "prot");
+		int prot = nationGen.armorDB.GetInteger(template.getSlot("armor").id, "prot");
 		
 		if(template.pose.getItems("helmet") != null)
 		{
@@ -175,7 +175,7 @@ public class ScoutGenerator extends TroopGenerator {
 		if(tier == 3)
 			dwchance = 1;
 			
-		if(p.getItems("offhand") != null && r.nextDouble() < dwchance && p.getItems("offhand").filterArmor(false).size() > 0 && nationGen.weapondb.GetInteger(template.getSlot("weapon").id, "lgt") < 3 && nationGen.weapondb.GetInteger(template.getSlot("weapon").id, "2h") == 0)
+		if(p.getItems("offhand") != null && r.nextDouble() < dwchance && p.getItems("offhand").filterArmor(false).size() > 0 && nationGen.weaponDB.GetInteger(template.getSlot("weapon").id, "lgt") < 3 && nationGen.weaponDB.GetInteger(template.getSlot("weapon").id, "2h") == 0)
 		{	
 		
 			if(r.nextDouble() > 0.25 && p.getItems("offhand").filterArmor(false).getItemWithID(weapon.id, "offhand") != null)

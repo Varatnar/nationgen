@@ -2495,12 +2495,12 @@ public class MageGenerator extends TroopGenerator {
 	
 			if(troop)
 			{
-				if(nationGen.weapondb.GetInteger(unit.getSlot("weapon").id, "lgt") >= 3)
+				if(nationGen.weaponDB.GetInteger(unit.getSlot("weapon").id, "lgt") >= 3)
 				{
 					if(unit.getSlot("offhand") != null && !unit.getSlot("offhand").armor)
 						unit.setSlot("offhand", null);
 				}
-				else if(nationGen.weapondb.GetInteger(unit.getSlot("weapon").id, "2h") == 1)
+				else if(nationGen.weaponDB.GetInteger(unit.getSlot("weapon").id, "2h") == 1)
 				{
 					unit.setSlot("offhand", null);
 				}
