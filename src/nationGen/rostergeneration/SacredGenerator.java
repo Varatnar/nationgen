@@ -354,7 +354,7 @@ public class SacredGenerator extends TroopGenerator {
 
 		
 		CustomItemGen ciGen = new CustomItemGen(nation);
-		List<MagicItem> magicItems = new ArrayList<MagicItem>();
+		List<MagicItem> magicItems;
 
 		magicItems = ChanceIncHandler.retrieveFilters("magicItems", "defaultprimary", nationGen.magicItems, u.pose, u.race);
 

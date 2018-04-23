@@ -49,8 +49,8 @@ import nationGen.units.Unit;
 
 
 public class NationGen {
-    public static String version = "0.7.0-RC4";
-    public static String date = "11th of April 2018";
+    public static String version = "0.7.0-RC4-PL";
+    public static String date = "21rst of April 2018";
 
     public List<NationRestriction> restrictions = new ArrayList<>();
 
@@ -79,7 +79,13 @@ public class NationGen {
     public Dom3DB nations;
 
     public Settings settings;
-    public List<CustomItem> customItems = new ArrayList<>();
+
+
+    private List<CustomItem> defaultCustomItems = new ArrayList<>();
+    @SuppressWarnings("FieldCanBeLocal")
+    private List<Filter> defaultCustomSpells = new ArrayList<>();
+
+    public List<CustomItem> customItems;
     private List<Filter> customSpells = new ArrayList<>();
     private List<ShapeShift> secondShapes = new ArrayList<>();
     public List<Race> races = new ArrayList<>();
@@ -93,8 +99,9 @@ public class NationGen {
     private List<Spell> freeSpells = new ArrayList<>();
 
     public NationGen() {
-        //System.out.println("Dominions 4 NationGen version " + version + " (" + date + ")");
-        //System.out.println("------------------------------------------------------------------");
+
+        System.out.println("Dominions 5 NationGen version " + version + " (" + date + ")");
+        System.out.println("------------------------------------------------------------------");
 
         System.out.print("Loading settings... ");
         settings = new Settings();
@@ -103,12 +110,20 @@ public class NationGen {
 
         // Init bloc, todo: confirm comment please
         try {
+
+            //default lists init
+
+            defaultCustomItems.addAll(Item.readFile(this, "./data/items/customItems.txt", CustomItem.class));
+            defaultCustomSpells.addAll(Item.readFile(this, "./data/spells/custom_spells.txt", Filter.class));
+
+            //end default list init
+
             System.out.print("Loading Larzm42's Dom5 Mod Inspector database... ");
             loadDom3DB();
             System.out.println("done!");
             System.out.print("Loading definitions... ");
-            customItems.addAll(Item.readFile(this, "./data/items/customItems.txt", CustomItem.class));
-            customSpells.addAll(Item.readFile(this, "./data/spells/custom_spells.txt", Filter.class));
+            customItems = new ArrayList<>(defaultCustomItems);
+            customSpells = new ArrayList<>(defaultCustomSpells);
             patterns.load("./data/magic/magicpatterns.txt");
             poses.load("./data/poses/poses.txt");
             filters.load("./data/filters/filters.txt");
@@ -949,5 +964,15 @@ public class NationGen {
         for (Race race : this.races) {
             race.poses.addAll(race.spriteGenPoses);
         }
+    }
+
+    /**
+     * Attempt to reset every property that might change
+     */
+    public void resetToDefault() {
+        this.settings = null;
+        this.restrictions = new ArrayList<>();
+        customItems = new ArrayList<>(defaultCustomItems);
+        customSpells = new ArrayList<>(defaultCustomSpells);
     }
 }

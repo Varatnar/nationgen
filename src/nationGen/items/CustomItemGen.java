@@ -17,12 +17,12 @@ import nationGen.units.Unit;
 public class CustomItemGen {
 	
 	
-	Nation n;
+	Nation nation;
 	Random random;
-	public CustomItemGen(Nation n)
+	public CustomItemGen(Nation nation)
 	{
-		this.n = n;
-		random = new Random(n.random.nextInt());
+		this.nation = nation;
+		random = new Random(nation.random.nextInt());
 	}
 	
 	
@@ -37,9 +37,9 @@ public class CustomItemGen {
 		boolean ranged = false;
 		boolean lowshots = false;
 		
-		if(n.nationGen.weaponDB.GetInteger(olditem.id, "rng") != 0)
+		if(nation.nationGen.weaponDB.GetInteger(olditem.id, "rng") != 0)
 			ranged = true;
-		if(n.nationGen.weaponDB.GetInteger(olditem.id, "shots", 100) < 4)
+		if(nation.nationGen.weaponDB.GetInteger(olditem.id, "shots", 100) < 4)
 			lowshots = true;
 			
 
@@ -65,7 +65,7 @@ public class CustomItemGen {
 			if(possibles.size() > 0)
 			{
 				
-				ChanceIncHandler chandler = new ChanceIncHandler(n, "customitemgenerator");
+				ChanceIncHandler chandler = new ChanceIncHandler(nation, "customitemgenerator");
 				LinkedHashMap<MagicItem, Double> itemMap = chandler.handleChanceIncs(u, possibles); 
 				
 				MagicItem mitem = MagicItem.getRandom(random, itemMap);
@@ -121,7 +121,7 @@ public class CustomItemGen {
 				if(!mitem.effect.equals("-1"))
 					i.values.put("secondaryeffect", mitem.effect);
 				
-				String name = n.nationGen.weaponDB.GetValue(olditem.id, "weapon_name");
+				String name = nation.nationGen.weaponDB.GetValue(olditem.id, "weapon_name");
 				List<String> prefixes = new ArrayList<String>();
 				List<String> suffixes = new ArrayList<String>();
 				
@@ -267,7 +267,7 @@ public class CustomItemGen {
 			
 			
 		}
-		String name = n.nationGen.weaponDB.GetValue(olditem.id, "weapon_name");
+		String name = nation.nationGen.weaponDB.GetValue(olditem.id, "weapon_name");
 		
 
 		if(!magic && (i.magicItem == null || !named))
@@ -275,16 +275,16 @@ public class CustomItemGen {
 		else if(magic && (i.magicItem == null || !named))
 			i.values.put("name", "\"Enchanted " + name + "\"");
 		
-		String dname = "nation_" + n.nationid + "_customitem_" + (n.customitems.size() + 1);
+		String dname = "nation_" + nation.nationid + "_customitem_" + (nation.customitems.size() + 1);
 		i.id = dname;
 		i.name = dname;
 		
 		if(i.magicItem != null)
 			i.tags.addAll(i.magicItem.tags);
 		
-		n.customitems.add(i);
-		n.nationGen.customItems.add(i);
-		n.nationGen.weaponDB.addToMap(i.id, i.getHashMap());
+		nation.customitems.add(i);
+		nation.nationGen.customItems.add(i);
+		nation.nationGen.weaponDB.addToMap(i.id, i.getHashMap());
 		
 
 		return i;
@@ -302,7 +302,7 @@ public class CustomItemGen {
 		if(!Generic.isNumeric(item.id))
 			return null;
 		
-		CustomItem newitem = new CustomItem(n.nationGen);
+		CustomItem newitem = new CustomItem(nation.nationGen);
 		newitem.sprite = item.sprite;
 		newitem.mask = item.mask;
 		newitem.commands.addAll(item.commands);
@@ -319,9 +319,9 @@ public class CustomItemGen {
 		
 		Dom3DB db = null;
 		if(item.armor)
-			db = n.nationGen.armorDB;
+			db = nation.nationGen.armorDB;
 		else
-			db = n.nationGen.weaponDB;
+			db = nation.nationGen.weaponDB;
 		
 		
 		

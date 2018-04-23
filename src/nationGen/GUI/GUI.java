@@ -50,7 +50,7 @@ public class GUI extends JFrame implements ActionListener, ItemListener, ChangeL
     private JSlider eraSlider = new JSlider(JSlider.HORIZONTAL, 1, 3, 2);
     private JSlider sacredPowerSlider = new JSlider(JSlider.HORIZONTAL, 1, 3, 1);
 
-    private NationGen n = null;
+    private NationGen nationGen = null;
 
     public static void main(String[] args) throws Exception {
         if (args.length > 0 && args[0].equals("-commandline")) {
@@ -80,10 +80,10 @@ public class GUI extends JFrame implements ActionListener, ItemListener, ChangeL
         JPanel advoptions = new JPanel(new GridLayout(8, 1));
 
         // Restrictions need nationgen;
-        n = new NationGen();
-        n.settings = settings;
+        nationGen = new NationGen();
+        nationGen.settings = settings;
 
-        rPanel = new RestrictionPane(n);
+        rPanel = new RestrictionPane(nationGen);
 
         // Main
         tabs.addTab("Main", panel);
@@ -328,23 +328,23 @@ public class GUI extends JFrame implements ActionListener, ItemListener, ChangeL
 
 
     private void process() {
-        n = new NationGen();
-        n.settings = settings;
-        n.restrictions.addAll(rPanel.getRestrictions());
+        nationGen.resetToDefault();
+        nationGen.settings = settings;
+        nationGen.restrictions.addAll(rPanel.getRestrictions());
 
         Thread thread = new Thread(() -> {
             startButton.setEnabled(false);
             if (!modNameRandom.isSelected()) {
-                n.modname = modname.getText();
+                nationGen.modname = modname.getText();
             }
             try {
                 if (seedCheckBox.isSelected()) {
-                    n.generate(parseSeeds());
+                    nationGen.generate(parseSeeds());
                 } else {
                     if (!seedRandom.isSelected()) {
-                        n.generate(Integer.parseInt(amount.getText()), Integer.parseInt(seed.getText()));
+                        nationGen.generate(Integer.parseInt(amount.getText()), Integer.parseInt(seed.getText()));
                     } else {
-                        n.generate(Integer.parseInt(amount.getText()));
+                        nationGen.generate(Integer.parseInt(amount.getText()));
                     }
                 }
             } catch (NumberFormatException e) {
